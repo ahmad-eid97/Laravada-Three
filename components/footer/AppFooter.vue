@@ -142,6 +142,9 @@ export default {
     },
     methods : {
         
+    },
+    mounted() {
+        console.log(this.$store.state.footerLinks)
     }
 }
 </script>

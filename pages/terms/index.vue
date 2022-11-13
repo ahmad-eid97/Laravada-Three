@@ -116,6 +116,16 @@ import AppTermsHeading from '../../components/terms/AppTermsHeading.vue'
 export default {
     name: 'Terms',
     components: { AppTermsHeading },
+    async asyncData({ $axios }) {
+        const termsData = {}
+        const TERMS_DATA = await $axios.get('/pages/3');
+
+        if (TERMS_DATA.success) termsData = TERMS_DATA.data.data
+
+        return {
+            termsData
+        }
+    },
 
 }
 </script>
