@@ -8,171 +8,19 @@
                 </div>
             </div>
             <div class="row pt-45">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
+                <div v-for="member in team.teams" :key="member.id" class="col-sm-6 col-md-4 projects-col">
+                    <div class="card">
+                        <div class="thumb">
+                            <img :src="member.image" alt="">
+                            <div class="rollover"></div>
                         </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="flip-box">
-                        <div class="flip-box-front">
-                            <div class="flip-box-front-inner">
-                                <img src="/assets/images/testimonials/9.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="flip-box-back">
-                            <div class="flip-box-back-inner">
-                                <h3>
-                                    RICHARD SWIFT
-                                </h3>
-                                <h5>junior consultant</h5>
-                                <h6>Donec vestibulum lectus sem, vel convallis ligula commodo ac. Aenean congue
-                                    placerat risus, eu ullamcorper velit maximus sed.</h6>
-                                <h5>tel. 001 234 56 789</h5>
-                                <h5>richard@your-website.com</h5>
-                            </div>
+                        <div class="content">
+                            <h4>{{member.name}}</h4>
+                            <h5>{{member.job}}</h5>
+                            <h6>{{member.description}}</h6>
+                            <h5>{{member.phone}}</h5>
+                            <h5>{{member.email}}</h5>
+
                         </div>
                     </div>
                 </div>
@@ -184,7 +32,8 @@
 
 <script>
 export default {
-    name: 'AppTeamMembers'
+    name: 'AppTeamMembers',
+    props: ["team"]
 }
 </script>
 

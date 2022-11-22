@@ -11,108 +11,18 @@
                 </p>
             </div>
             <div class="row pt-45">
-                <div class="col-lg-3 col-sm-6">
+                <div v-for="service in services.services" :key="service.id" class="col-lg-3 col-sm-6 col-md-4" @click="$router.push(`/service/${service.id}`)">
                     <div class="services-card services-style-bg">
                         <div class="icon">
                             <font-awesome-icon icon="fa-solid fa-person-dots-from-line" />
                         </div>
                         <h3>
-                            <NuxtLink to="/service/123">IT Consulting</NuxtLink>
+                            <router-link to="service">{{service.title}}</router-link>
                         </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                        <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-cloud" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Cloud Computing</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-laptop-code" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Web Development</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el. </p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-chart-area" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Business Reform</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-code-branch" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Infrastructure</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-folder-tree" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Data Analysis</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-gears" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Manage IT Service</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="services-card services-style-bg">
-                        <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-briefcase" />
-                        </div>
-                        <h3>
-                            <NuxtLink to="/service/123">Business Security</NuxtLink>
-                        </h3>
-                        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                            <NuxtLink to="/service/123">Learn More 
-                            <i class="bx bx-chevron-right"></i></NuxtLink>
+                        <p>{{service.description}}</p>
+                        <router-link to="service" class="learn-btn">Learn More 
+                            <i class="bx bx-chevron-right"></i>
+                        </router-link>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 text-center">
@@ -135,7 +45,7 @@
 
 <script>
 export default {
-
+    props: ["services"]
 }
 </script>
 
