@@ -1,50 +1,51 @@
 <template>
-  <div class="side-bar-widget">
-    <h3 class="title">Gallery</h3>
-    <ul class="blog-gallery">
-      <li
-        v-for="(image, index) in media"
-        :key="index"
-        style="display: inline-block; margin: 0 5px 5px 0"
-      >
-        <a @click="openGallery(index)">
-          <font-awesome-icon
-            icon="fa-solid fa-up-right-and-down-left-from-center"
-          />
-          <img :src="image" alt="image" />
-        </a>
-      </li>
-    </ul>
-    <CoolLightBox
-      :items="media"
-      :index="imageIndex"
-      @close="imageIndex = null"
-    />
-  </div>
+    <div class="side-bar-widget">
+        <h3 class="title">Gallery</h3>
+        <ul class="blog-gallery">
+            <li
+                v-for="(image, index) in blogDetails.gallery"
+                :key="index"
+                style="display: inline-block; margin: 0 5px 5px 0"
+            >
+                <a  @click="openGallery(index)">
+                    <font-awesome-icon icon="fa-solid fa-up-right-and-down-left-from-center" />
+                    <img :src="image" alt="image">
+                </a>
+            </li>
+        </ul>
+        <CoolLightBox
+            :items="media"
+            :index="imageIndex"
+            @close="imageIndex = null"
+        />
+    </div>
 </template>
 
 <script>
 export default {
-  name: "AppBlogGallery",
-  data() {
-    return {
-      media: [
-        "https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img1.jpg",
-        "https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img2.jpg",
-        "https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img3.jpg",
-        "https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img4.jpg",
-        "https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img5.jpg",
-        "https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img6.jpg",
-      ],
-      imageIndex: null,
-    };
-  },
-  methods: {
-    openGallery(i) {
-      this.imageIndex = i;
+    name: 'AppBlogGallery',
+    props: ["blogDetails"],
+    components: {
     },
-  },
-};
+    data () {
+        return {
+            media: [
+                'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img1.jpg',
+                'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img2.jpg',
+                'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img3.jpg',
+                'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img4.jpg',
+                'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img5.jpg',
+                'https://templates.hibootstrap.com/techex/default/assets/images/blog/blog-small-img6.jpg',
+            ],
+            imageIndex: null
+        }
+    },
+    methods: {
+        openGallery(i) {
+            this.imageIndex = i;
+        }
+    }
+}
 </script>
 
 <style>
@@ -75,23 +76,23 @@ export default {
   position: relative;
 }
 .side-bar-widget .blog-gallery li a::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: var(--main-color);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
   opacity: 0;
   visibility: hidden;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 .side-bar-widget .blog-gallery li a img {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 .side-bar-widget .blog-gallery li a svg {
   position: absolute;
@@ -100,12 +101,12 @@ export default {
   left: 30%;
   right: 0;
   text-align: center;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0,-50%);
+  transform: translate(0,-50%);
   text-align: center;
   background-color: transparent;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
   opacity: 0;
   visibility: hidden;
   font-size: 35px;
@@ -113,7 +114,7 @@ export default {
   color: #fff;
 }
 .side-bar-widget .blog-gallery li a:hover::before {
-  opacity: 0.5;
+  opacity: .5;
   visibility: visible;
 }
 .side-bar-widget .blog-gallery li a:hover svg {

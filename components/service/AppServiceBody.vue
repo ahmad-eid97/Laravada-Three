@@ -1,10 +1,11 @@
 <template>
     <div class="service-article">
         <div class="service-article-img">
-            <img src="/assets/images/service-details.jpg" alt="Images">
+            <img :src="serviceDetails.image" alt="Images">
         </div>
         <div class="service-article-content">
-            <h2>Cloud Computing</h2>
+            <p>{{serviceDetails.description}}</p>
+            <!-- <h2>Cloud Computing</h2>
             <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu
             sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne,
@@ -95,25 +96,24 @@
             pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen
             li, porttitor eu, consequat vitae, eleifend ac, enim.
             </p>
+        </div> -->
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'AppServiceBody'
+    name: 'AppServiceBody',
+    props: ["serviceDetails"]
 }
 </script>
 
 <style>
-.service-article {
-    text-align: start;
-}
 .service-article .service-article-img {
   margin-bottom: 25px;
 }
 .service-article .service-article-img img {
-  border-radius: 10px;
+  border-radius: 12px;
 }
 .service-article h2 {
   font-size: 26px;
@@ -155,6 +155,6 @@ export default {
   margin-top: 10px;
 }
 .service-article .service-article-another .service-article-another-img img {
-  border-radius: 10px;
+  border-radius: 12px;
 }
 </style>

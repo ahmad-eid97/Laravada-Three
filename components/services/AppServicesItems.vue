@@ -4,8 +4,6 @@
             <div class="section-title text-center">
                 <span class="sp-color2">Our Services</span>
                 <h2>We Provide a Wide Variety of It Services</h2>
-                <div class="seprator">
-                </div>
                 <p class="margin-auto mx-auto">
                 Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
                 </p>
@@ -14,29 +12,29 @@
                 <div v-for="service in services.services" :key="service.id" class="col-lg-3 col-sm-6 col-md-4" @click="$router.push(`/service/${service.id}`)">
                     <div class="services-card services-style-bg">
                         <div class="icon">
-                            <font-awesome-icon icon="fa-solid fa-person-dots-from-line" />
+                            <font-awesome-icon :icon="service.icon" />
                         </div>
                         <h3>
                             <router-link to="service">{{service.title}}</router-link>
                         </h3>
-                        <p>{{service.description}}</p>
+                        <p>{{service.short_description}}</p>
                         <router-link to="service" class="learn-btn">Learn More 
                             <i class="bx bx-chevron-right"></i>
                         </router-link>
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-12 text-center">
-                    <div class="pagination-area">
-                        <a href="#" class=" page-numbers">
-                            <font-awesome-icon icon="fa-solid fa-arrow-left" />
-                        </a>
-                        <span class="page-numbers current" aria-current="page">1</span>
-                        <a href="#" class="page-numbers">2</a>
-                        <a href="#" class="page-numbers">3</a>
-                        <a href="#" class=" page-numbers">
-                            <font-awesome-icon icon="fa-solid fa-arrow-right" />
-                        </a>
-                    </div>
+            </div>
+            <div class="col-lg-12 col-md-12 text-center">
+                <div class="pagination-area">
+                    <a href="#" class=" page-numbers">
+                        <font-awesome-icon icon="fa-solid fa-arrow-left" />
+                    </a>
+                    <span class="page-numbers current" aria-current="page">1</span>
+                    <a href="#" class="page-numbers">2</a>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class=" page-numbers">
+                        <font-awesome-icon icon="fa-solid fa-arrow-right" />
+                    </a>
                 </div>
             </div>
         </div>
@@ -64,45 +62,41 @@ export default {
   color: var(--main-color);
 }
 .services-style-area .section-title h2 {
-    font-weight: 400;
-    line-height: 41.6px;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-}
-.services-style-area .section-title .seprator{
-    align-self: center;
-    margin-left: auto;
+    max-width: 600px;
+    color: #252525;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 42px;
+    text-align: left;
+    margin-top: 10px;
     margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 206px;
-    border-color: var(--main-color);
-    border-top-width: 2px;
-    border-top-style: solid;
+    margin-bottom: 15px;
+    margin-left: auto;
+    text-align: center;
 }
+
 .services-style-area .section-title p {
   max-width: 600px;
 }
 .services-card {
     box-shadow: 0 0 15px rgba(0,0,0,.07);
     padding: 40px 30px 35px;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: #fff;
     position: relative;
     z-index: 1;
     margin-bottom: 30px;
-    color: #212934;
+    color: #252525;
 }
 .services-card h3 a {
-    color: #212934;
+    color: #252525;
     font-size: 22px;
 
 }
 .services-card:hover h3 a,
 .services-card:hover p {
-    color: #212934;
+    color: #fff;
 }
 .services-card::before {
     content: '';
@@ -112,8 +106,8 @@ export default {
     right: 0;
     width: 90px;
     height: 90px;
-    background-color:#f5f5f5;
-    border-radius: 10px;
+    background-color:var(--main-color);
+    border-radius: 12px;
     opacity: .1;
     -webkit-transition: .7s;
     transition: .7s;
@@ -128,8 +122,8 @@ export default {
     right: 0;
     width: 75px;
     height: 75px;
-    background-color:#f5f5f5;
-    border-radius: 10px;
+    background-color:var(--main-color);
+    border-radius: 12px;
     opacity: .1;
     -webkit-transition: .7s;
     transition: .7s;
@@ -137,7 +131,7 @@ export default {
 .services-card:hover::before {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     opacity: 1;
 }
 .services-card .icon {
@@ -147,7 +141,7 @@ export default {
     line-height: 80px;
     color: #fff;
     background-color:var(--main-color);
-    border-radius: 50%;
+    border-radius: 12px;
     display: inline-block;
     text-align: center;
     margin-bottom: 12px;
@@ -155,39 +149,23 @@ export default {
     transition: .5s;
 }
 .services-card:hover .icon {
-    background-color: var(--main-color) !important;
-    border-color: var(--main-color) !important;
-    transition: background-color .3s,color .3s;
-    transform: scale(.93);
-}
-.services-card .icon::after {
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  content: "";
-  box-sizing: content-box;
-  top: 0;
-  left: 0;
-  padding: 0;
-  z-index: -1;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.1);
-  opacity: 0;
-  transform: scale(.9);
-  display: inline-block;
-  -webkit-animation: fusionSonarEffect 1.3s ease-out 75ms;
-  animation: fusionSonarEffect 1.3s ease-out 75ms;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-.services-card:hover .icon::after {
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 0px 0px 2px, var(--main-color) 0px 0px 10px 10px, rgba(255, 255, 255, 0.5) 0px 0px 0px 10px;
+    font-size: 45px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    color: var(--main-color);
+    background-color: #fff;
+    border-radius: 12px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 12px;
+    -webkit-transition: .5s;
+    transition: .5s;
 }
 .services-card a {
     color: #212934;
 }
 .services-card:hover a {
-    color: #212934;
+    color: #fff;
 }
 </style>

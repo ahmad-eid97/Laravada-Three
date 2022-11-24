@@ -2,7 +2,7 @@
   --main-color: #028D88;
   --secend-color: #0853a2;
 }
-* {
+.home {
   text-align: center !important;
 }
 hr {

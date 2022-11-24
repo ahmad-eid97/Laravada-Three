@@ -1,7 +1,7 @@
 <template>
     <div class="blog-article">
         <div class="blog-article-img">
-            <img src="/assets/images/blog-details.jpg" alt="Images">
+            <img :src="blogDetails.image" alt="Images">
             <div class="blog-article-tag">
                 <h3>04</h3>
                 <span>Nov</span>
@@ -11,7 +11,7 @@
             <ul>
                 <li>
                     <font-awesome-icon icon="fa-solid fa-user" />
-                    By Admin
+                    By {{blogDetails.username}}
                 </li>
                 <li>
                     <font-awesome-icon icon="fa-solid fa-eye" />
@@ -19,13 +19,14 @@
                 </li>
                 <li>
                     <font-awesome-icon icon="fa-solid fa-comments" />
-                    2 Comments
+                    {{blogDetails.comments.length}} Comments
                 </li>
             </ul>
             <h2>10 Ways to Get Efficient Result and Benefits</h2>
         </div>
         <div class="article-content">
-            <p>
+            <p>{{blogDetails.description}}</p>
+            <!-- <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu
             sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne,
             pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet n,
@@ -59,7 +60,7 @@
             <p>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',
             making it look like readable English.
-            </p>
+            </p> -->
         </div>
         <div class="blog-article-share">
             <div class="row align-items-center">
@@ -101,41 +102,17 @@
         </div>
         <div class="comments-wrap">
             <div class="comment-title">
-                <h3 class="title">Comments (02)</h3>
+                <h3 class="title">Comments ({{blogDetails.comments.length}})</h3>
             </div>
             <ul class="comment-list">
-                <li>
-                    <img src="/assets/images/blog-profile1.png" alt="Image">
-                    <h3>Medison Decros</h3>
-                    <span>On September 18,2020 at 4.30 pm</span>
+                <li v-for="comment in blogDetails.comments" :key="comment.id">
+                    <img :src="comment.image" alt="Image">
+                    <h3>{{comment.username}}</h3>
+                    <span>{{comment.publish_date}}</span>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                    Aenean massa. cu sociis natoque penatibus et magnis dis parturient montes, nascetur ridicule
-                    us mus. Donec quam felis, ultricies ne, pellentesque.
+                    {{comment.content}}
                     </p>
                     <a href="#"> Reply</a>
-                </li>
-                <li>
-                    <img src="/assets/images/blog-profile2.png" alt="Image">
-                    <h3>Jekson Albin</h3>
-                    <span>On September 18,2020 at 4.30 pm</span>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                    Aenean massa. cu sociis natoque penatibus et magnis dis parturient montes, nascetur ridicule
-                    us mus. Donec quam felis, ultricies ne, pellentesque.
-                    </p>
-                    <a href="#"> Reply</a>
-                </li>
-                <li>
-                    <img src="/assets/images/blog-profile3.png" alt="Image">
-                    <h3>Bentham Debid</h3>
-                    <span>On September 18,2020 at 4.30 pm</span>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                    Aenean massa. cu sociis natoque penatibus et magnis dis parturient montes, nascetur ridicule
-                    us mus. Donec quam felis, ultricies ne, pellentesque.
-                    </p>
-                    <a href="#">Reply</a>
                 </li>
             </ul>
         </div>
@@ -190,11 +167,12 @@
 
 <script>
 export default {
-    name: 'AppBlogBody'
+    name: 'AppBlogBody',
+    props: ["blogDetails"]
 }
 </script>
 
-<style>
+<style lang="scss">
     .blog-article {
         margin-bottom: 30px;
     }
@@ -203,7 +181,7 @@ export default {
         position: relative;
     }
     .blog-article .blog-article-img img {
-        border-radius: 10px;
+        border-radius: 12px;
         max-width: 100%;
     }
     .blog-article .blog-article-img .blog-article-tag {
@@ -212,19 +190,19 @@ export default {
         position: absolute;
         bottom: -20px;
         right: 30px;
-        border-radius: 10px;
+        border-radius: 12px;
         text-align: center;
     }
     .blog-article .blog-article-img .blog-article-tag h3 {
         font-size: 17px;
-        color: #2c3e50;
+        color: #fff;
         line-height: 1;
         margin-bottom: 0;
         font-weight: 500;
     }
     .blog-article .blog-article-img .blog-article-tag span {
         font-size: 17px;
-        color: #2c3e50;
+        color: #fff;
         line-height: 1;
         font-weight: 500;
     }
@@ -239,7 +217,7 @@ export default {
     .blog-article .blog-article-title ul li {
         display: inline-block;
         font-size: 15px;
-        color: #2c3e50;
+        color: #212529;
         margin-right: 30px;
         position: relative;
         font-weight: 500;
@@ -256,7 +234,7 @@ export default {
         font-size: 26px;
         max-width: 650px;
         margin-bottom: 0;
-        color: #2c3e50;
+        color: #212529;
     }
     .blog-article .article-content {
         padding-bottom: 10px;
@@ -293,7 +271,7 @@ export default {
         width: 70px;
         height: 70px;
         line-height: 70px;
-        color: #2c3e50;
+        color: #fff;
          background: var(--main-color);
         text-align: center;
         border-radius: 50px;
@@ -328,10 +306,10 @@ export default {
         top: 3px;
     }
     .blog-article .blog-article-share .blog-tag ul li a {
-        color: #252525;
+        color: #fff;
         background-color: var(--main-color);
         padding: 5px 12px;
-        border-radius: 8px;
+        border-radius: 20px;
         font-size: 14px;
     }
     .blog-article .blog-article-share .social-icon {
@@ -355,15 +333,15 @@ export default {
         -webkit-box-shadow: 0 0 15px rgba(0,0,0,.1);
         box-shadow: 0 0 15px rgba(0,0,0,.1);
         display: inline-block;
+        border-radius: 12px;
     }
     .blog-article .comments-wrap {
         margin-bottom: 30px;
-        text-align: start;
     }
     .blog-article .comments-wrap .comment-title .title {
         font-size: 24px;
         margin-bottom: 0;
-        color: #252525;
+        color: #212529;
     }
     .blog-article .comments-wrap .comment-list {
         list-style: none;
@@ -380,14 +358,14 @@ export default {
         position: absolute;
         top: 30px;
         left: 0;
-        border-radius: 50%;
+        border-radius: 12px;
         width: 54px;
     }
     .blog-article .comments-wrap .comment-list li h3 {
         margin-bottom: 5px;
         font-size: 18px;
         font-weight: 600;
-        color: #252525;
+        color: #212529;
     }
     .blog-article .comments-wrap .comment-list li span {
         font-size: 15px;
@@ -407,12 +385,11 @@ export default {
     .blog-article .comments-form {
         margin-top: 30px;
         margin-bottom: 30px;
-        text-align: start;
     }
     .blog-article .comments-form .title {
         font-size: 24px;
         margin-bottom: 20px;
-        color: #252525;
+        color: #212529;
     }
     .blog-article .comments-form .contact-form {
         -webkit-box-shadow: none;
@@ -431,37 +408,27 @@ export default {
         padding-left: 25px;
         font-size: 15px;
     }
-
-    
-.contact-form-area {
-    text-align: start;
-}
 .contact-form-area .section-title h2 {
-    font-weight: 400;
-    line-height: 41.6px;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-    color: #252525;
-}
-.contact-form-area .section-title .seprator {
-    align-self: center;
-    margin-left: auto;
+    max-width: 600px;
+    color: #212529;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 42px;
+    text-align: left;
+    margin-top: 10px;
     margin-right: auto;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 206px;
-    border-color: var(--main-color);
-    border-top-width: 2px;
-    border-top-style: solid;
+    margin-bottom: 15px;
+    margin-left: auto;
+    text-align: center;
 }
+
 .contact-form-area h2 {
     font-size: 35px;
     font-weight: 600;
     margin-top: 0;
     line-height: 1.2;
-    color:var(--main-color);
+    color:#212529;
     margin-bottom: 0;
 }
 .contact-info::before {
@@ -483,22 +450,22 @@ export default {
     margin-bottom: 30px;
     background-color:var(--main-color);
     padding: 52px 35px 22px;
-    border-radius: 10px;
+    border-radius: 12px;
     position: relative;
     z-index: 1;
 }
 .contact-form-area .contact-info span {
-    color: #252525;
+    color: #fff;
     display: block;
     margin-bottom: 5px;
 }
 .contact-form-area .contact-info h2 {
-  color: #252525;
+  color: #fff;
   font-size: 26px;
   margin-bottom: 15px;
 }
 .contact-form-area .contact-info p {
-  color: #252525;
+  color: #fff;
   margin-bottom: 20px;
 }
 .contact-form-area .contact-info ul {
@@ -516,11 +483,11 @@ export default {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #252525;
+  background-color: #fff;
   font-size: 20px;
   color:var(--main-color);
   border-radius: 50px;
-  border: 1px solid #252525;
+  border: 1px solid #fff;
   margin-bottom: 10px;
   text-align: center;
   position: absolute;
@@ -530,17 +497,17 @@ export default {
 .contact-info ul li .content h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #252525;
+  color: #fff;
   display: block;
 }
 .contact-form-area .contact-info ul li .content a {
-  color: #252525;
+  color: #fff;
   display: block;
   font-weight: 400;
   font-size: 15px;
 }
 .contact-form .form-group label {
-  color: #252525;
+  color: #212529;
   font-size: 15px;
   margin-bottom: 15px;
   font-weight: 500;
@@ -550,7 +517,7 @@ export default {
 }
 .contact-form .form-group .form-control {
   height: 50px;
-  color: #252525;
+  color: #212529;
   border: 1px solid var(--main-color);
   background-color: #fff;
   font-size: 15px;
@@ -586,11 +553,10 @@ height: auto;
 
 .contact-form .default-btn, .contact-form .default-btn:hover {
   background-color: var(--main-color);
-  border-radius: 0px;
-  color: #252525;
+  border-radius: 25px;
+  color: #fff;
   padding: 10px 16px;
   font-weight: bold;
   border: none;
 }
-
 </style>

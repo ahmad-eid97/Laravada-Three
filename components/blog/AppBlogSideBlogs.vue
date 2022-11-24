@@ -68,7 +68,7 @@ export default {
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: #2c3e50;
+  color: #212529;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -104,7 +104,8 @@ export default {
   background-repeat: no-repeat;
   background-position: center center !important;
   position: relative;
-  border-radius: 10px;
+  background-color: #070b3b;
+  border-radius: 12px;
 }
 .side-bar-widget .widget-popular-post .item .info {
   overflow: hidden;

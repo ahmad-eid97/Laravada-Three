@@ -22,7 +22,7 @@ export default {
 <style>
 .side-bar-widget .title {
   font-size: 20px;
-  color: #000;
+  color: #252525;
   padding: 0;
   font-weight: 600;
   position: relative;
@@ -43,7 +43,7 @@ export default {
   color: #fff;
 }
 .side-bar-widget .side-bar-widget-tag li a {
-  color: #000;
+  color: var(--main-color);
   padding: 7px 15px;
   background-color: transparent;
   border: 2px solid var(--main-color);
