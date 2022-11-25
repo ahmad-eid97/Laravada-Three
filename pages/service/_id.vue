@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="">
         <app-service-heading></app-service-heading>
         <div class="service-details-area pt-100 pb-70">
             <div class="container">
@@ -10,7 +10,7 @@
                     <div class="col-lg-4">
                         <div class="side-bar-area">
                             <app-service-side-services :serviceDetails="serviceDetails"></app-service-side-services>
-                            <app-service-side-tags></app-service-side-tags>
+                            <app-service-side-tags :serviceDetails="serviceDetails"></app-service-side-tags>
                             <app-service-gallery :serviceDetails="serviceDetails"></app-service-gallery>
                             <app-service-side-archive :serviceDetails="serviceDetails"></app-service-side-archive>
                         </div>

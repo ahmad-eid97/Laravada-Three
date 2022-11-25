@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="">
         <app-services-heading></app-services-heading>
         <app-services-items :services="servicesData"></app-services-items>
     </div>
