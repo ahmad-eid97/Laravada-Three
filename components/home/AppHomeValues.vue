@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="value">
-                        <div class="heading">
+                        <div class="page-heading">
                             <div class="row mx-0 justify-content-center">
                                 <div class="icon">
                                     <font-awesome-icon icon="fa-solid fa-house-chimney" />
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="value">
-                        <div class="heading">
+                        <div class="page-heading">
                             <div class="row mx-0 justify-content-center">
                                 <div class="icon" style="background-color: rgb(81, 122, 210)">
                                     <font-awesome-icon icon="fa-solid fa-gear" />
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="value">
-                        <div class="heading">
+                        <div class="page-heading">
                             <div class="row mx-0 justify-content-center">
                                 <div class="icon" style="background-color: rgb(254, 129, 62)">
                                     <font-awesome-icon icon="fa-solid fa-users" />
@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <div class="value">
-                        <div class="heading">
+                        <div class="page-heading">
                             <div class="row mx-0 justify-content-center">
                                 <div class="icon" style="background-color: rgb(132, 203, 1)">
                                     <font-awesome-icon icon="fa-solid fa-lightbulb" />
