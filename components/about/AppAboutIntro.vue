@@ -4,33 +4,33 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="clients-slider-img">
-                        <img src="/assets/images/about-img5.png" alt="About Images">
+                        <img :src="aboutSection.find(one => one.key === 'about_image').value" alt="About Images">
                         <div class="clients-slider-circle"></div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="">
-                        <h5>About Your Company</h5>
+                    <div class="testSide">
+                        <h5>{{aboutSection.find(one => one.key === 'about_title').value}}</h5>
                         <h2>
-                            We Are Increasing Business With Promising It Services
+                            {{aboutSection.find(one => one.key === 'about_sub_title').value}}
                         </h2>
-                        <div class="col-12 seprator"></div>
+                        
                         <p>
-                            Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum auctor a ornare odio. 
+                            {{aboutSection.find(one => one.key === 'about_description').value}}
                         </p>
-                        <h3>We Have 22+ Years Of Experience. We Offer It Solutions , Digital Technology Service</h3>
+                        <h3>{{aboutSection.find(one => one.key === 'about_title_experience').value}}</h3>
                         <div class="skill-bar" data-percentage="90%">
                             <h4 class="progress-title-holder clearfix">
-                                <span class="progress-title">Analytics</span>
+                                <span class="progress-title">{{aboutSection.find(one => one.key === 'about_skill_1_title').value}}</span>
                             </h4>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" :style="{width: aboutSection.find(one => one.key === 'about_skill_1_percentage').value+'%'}" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <h4 class="progress-title-holder clearfix">
-                                <span class="progress-title">Solutions</span>
+                                <span class="progress-title">{{aboutSection.find(one => one.key === 'about_skill_2_title').value}}</span>
                             </h4>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" :style="{width: aboutSection.find(one => one.key === 'about_skill_2_percentage').value+'%'}" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                                 
                         </div>
@@ -43,13 +43,17 @@
 
 <script>
 export default {
-    name: 'AppAboutIntro'
+    name: 'AppAboutIntro',
+    props: ["aboutSection"],
 }
 </script>
 
 <style>
+    .testSide {
+        margin-top: 40px;
+    }
     .about-intro {
-        background-color: #f5f5f5;
+        background-color: #f8f8f8;
     }
     .about-intro .clients-slider-img {
         position: relative;
@@ -70,34 +74,27 @@ export default {
         height: 80%;
         -webkit-animation: border-transform 15s infinite ease-in-out;
         animation: border-transform 15s infinite ease-in-out;
-        background: var(--main-color); 
+        background: var(--main-color);
     }
     .about-intro h5 {
-        margin-top: 30px;
         margin-bottom: 8px;
         font-weight: 600;
         display: block;
         color: var(--main-color);
     }
     .about-intro h2 {
-        font-weight: 400;
-        line-height: 41.6px;
-        letter-spacing: 1px;
-        text-transform: capitalize;
-        margin-bottom: 20px;
+        color: #212529;
+        font-size: 35px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 42px;
+        text-align: left;
+        margin-top: 10px;
+        margin-right: 0px;
+        margin-bottom: 15px;
+        margin-left: 0px;
     }
-    .about-intro .seprator {
-        align-self: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0px;
-        margin-bottom: 30px;
-        width: 100%;
-        max-width: 206px;
-        border-color: var(--main-color);
-        border-top-width: 2px;
-        border-top-style: solid;
-    }
+    
     .about-intro p {
         color: #9c9c9c;
         padding-top: 10px;
@@ -109,17 +106,17 @@ export default {
         font-size: 20px;
         margin-bottom: 20px;
         font-weight: 600;
-        color: #212934;
+        color: #212529;
     }
     .about-intro h4 {
         font-size: 16px;
         font-weight: 600;
-        color: #212934;
+        color: #212529;
         margin-bottom: 15px;
     }
     .about-intro .progress {
         height: 10px;
-        background-color: #fed13d4d;
+        background-color: #755fb983;
         border-radius: 5px;
         margin-bottom: 20px;
     }

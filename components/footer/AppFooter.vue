@@ -73,7 +73,7 @@
                                     <font-awesome-icon icon="fa-solid fa-envelope" />
                                 </div>
                                 <div class="col p-0">
-                                    info@railcoder.com
+                                    {{$store.state.websiteSettings.find(one => one.key === 'email').plain_value}}
                                 </div>
                             </div>
                         </li>
@@ -111,17 +111,17 @@
                     <p>©COPYRIGHT 2012 - 2022 | LARAVADA THEME | ALL RIGHTS RESERVED | POWERED BY <a href="#" target="_blank">RAIL CODER</a></p>
                 </div>
                 <div class="col-auto social">
-                    <a href="#" >
+                    <a :href="`https://${$store.state.footerData.facebook}`" target="_blank" >
                         <font-awesome-icon icon="fa-brands fa-facebook-f" />
                     </a>
-                    <a href="#" >
-                        <font-awesome-icon icon="fa-brands fa-twitter" />
-                    </a>
-                    <a href="#" >
+                    <a :href="`https://${$store.state.footerData.youtube}`" target="_blank" >
                         <font-awesome-icon icon="fa-brands fa-youtube" />           
                     </a>
-                    <a href="#" >
+                    <a :href="`https://${$store.state.footerData.instagram}`" target="_blank" >
                         <font-awesome-icon icon="fa-brands fa-instagram" />          
+                    </a>
+                    <a :href="`https://${$store.state.footerData.linkedin}`" target="_blank" >
+                        <font-awesome-icon icon="fa-brands fa-linkedin-in" />          
                     </a>
                 </div>
             </div>
@@ -144,7 +144,6 @@ export default {
         
     },
     mounted() {
-        console.log(this.$store.state.footerLinks)
     }
 }
 </script>
