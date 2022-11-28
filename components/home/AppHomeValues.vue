@@ -11,14 +11,14 @@
                 </p>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <div v-for="service in services.slice(0, 4)" :key="service.id" class="col-sm-6 col-md-4 col-lg-3">
                     <div class="value">
-                        <div class="page-heading">
+                        <div class="heading">
                             <div class="row mx-0 justify-content-center">
                                 <div class="icon">
-                                    <font-awesome-icon icon="fa-solid fa-house-chimney" />
+                                    <font-awesome-icon :icon="service.icon" />
                                 </div>
-                                <h2>Great Services</h2>
+                                <h2>{{service.title}}</h2>
                             </div>
                         </div>
                         <div class="content">
@@ -26,75 +26,12 @@
                                 <div class="separator">
                                 </div>
                                 <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
+                                    {{services.short_description}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="value">
-                        <div class="page-heading">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="icon" style="background-color: rgb(81, 122, 210)">
-                                    <font-awesome-icon icon="fa-solid fa-gear" />
-                                </div>
-                                <h2>Highest Standards</h2>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="separator">
-                                </div>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="value">
-                        <div class="page-heading">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="icon" style="background-color: rgb(254, 129, 62)">
-                                    <font-awesome-icon icon="fa-solid fa-users" />
-                                </div>
-                                <h2>Professional Team</h2>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="separator">
-                                </div>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="value">
-                        <div class="page-heading">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="icon" style="background-color: rgb(132, 203, 1)">
-                                    <font-awesome-icon icon="fa-solid fa-lightbulb" />
-                                </div>
-                                <h2>Creative Solutions</h2>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="separator">
-                                </div>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> 
             </div>
         </div>
     </section>
@@ -103,6 +40,7 @@
 <script>
 export default {
     name: 'AppHomeValues',
+    props: ["services"],
     data() {
         return {
             

@@ -11,10 +11,10 @@
                 </p>
             </div>
             <div class="row justify-content-center m-0">
-                <div class="col-md-6 col-lg-6 col-xl-4 p-0">
+                <div v-for="blog in blogs" :key="blog.id" class="col-md-6 col-lg-6 col-xl-4 p-0">
                     <div class="new">
                         <div class="image">
-                            <img src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/blog-post-134132600.jpg" alt="">
+                            <img :src="blog.image" :alt="blog.title">
                             <div class="rollover">
                                 <div class="rollover-content">
                                     <a class="rollover-link" href="#">
@@ -24,9 +24,9 @@
                                         <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                                     </a>
 
-                                    <h4><a href="#">Redeveloping Florida’s Remote Southern Coast </a></h4>
+                                    <h4><a href="#">{{blog.title}}</a></h4>
                                     <p>
-                                        <a href="#" rel="tag">Architecture,</a> <a href="#" rel="tag">Buildings,</a> <a href="#" rel="tag">Construction,</a> <a href="#" rel="tag">News</a>
+                                        <a href="#" rel="tag">{{blog.username}},</a> <a href="#" rel="tag">News</a>
                                     </p>
                                 </div>
                             </div>
@@ -34,89 +34,15 @@
                         <div class="content">
                             <h2 >
                                 <a href="#">
-                                Redeveloping Florida’s Remote Southern Coast
+                                {{blog.title}}
                                 </a>
                             </h2>
                             <p class="meta">
-                                <span>December 7th, 2015</span>
+                                <span>{{blog.publish_date}}</span>
                             </p>
                             <hr>
                             <p class="text">
-                                Technology is Here to Stay Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus nisl, elementum vitae consequat at, tristique ut enim. Sed ut dignissim leo. Nullam sed metus id sapien faucibus rhoncus sed
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 p-0">
-                    <div class="new">
-                        <div class="image">
-                            <img src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/blog-post-92486644.jpg" alt="">
-                            <div class="rollover">
-                                <div class="rollover-content">
-                                    <a class="rollover-link" href="#">
-                                        <font-awesome-icon icon="fa-solid fa-link" />
-                                    </a>
-                                    <a class="rollover-link" href="#">
-                                        <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-                                    </a>
-
-                                    <h4>
-                                        <a href="#">How We Manage Large Construction Projects</a>
-                                    </h4>
-                                    <p>
-                                        <a href="#" rel="tag">Architecture,</a> <a href="#" rel="tag">Buildings,</a> <a href="#" rel="tag">Construction,</a> <a href="#" rel="tag">News</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h2 >
-                                <a href="#">
-                                How We Manage Large Construction Projects
-                                </a>
-                            </h2>
-                            <p class="meta">
-                                <span>December 7th, 2015</span>
-                            </p>
-                            <hr>
-                            <p class="text">
-                                Technology is Here to Stay Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus nisl, elementum vitae consequat at, tristique ut enim. Sed ut dignissim leo. Nullam sed metus id sapien faucibus rhoncus sed
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 p-0">
-                    <div class="new">
-                        <div class="image">
-                            <img src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/blog-post-332773904.jpg" alt="">
-                            <div class="rollover">
-                                <div class="rollover-content">
-                                    <a class="rollover-link" href="#">
-                                        <font-awesome-icon icon="fa-solid fa-link" />
-                                    </a>
-                                    <a class="rollover-link" href="#">
-                                        <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
-                                    </a>
-
-                                    <h4><a href="#">Future proofing a modern home</a></h4>
-                                    <p>
-                                        <a href="#" rel="tag">Architecture,</a> <a href="#" rel="tag">Buildings,</a> <a href="#" rel="tag">Construction,</a> <a href="#" rel="tag">News</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h2 >
-                                <a href="#">
-                                Future proofing a modern home
-                                </a>
-                            </h2>
-                            <p class="meta">
-                                <span>December 7th, 2015</span>
-                            </p>
-                            <hr>
-                            <p class="text">
-                                Technology is Here to Stay Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus purus nisl, elementum vitae consequat at, tristique ut enim. Sed ut dignissim leo. Nullam sed metus id sapien faucibus rhoncus sed
+                                {{blog.short_description}}
                             </p>
                         </div>
                     </div>
@@ -125,7 +51,7 @@
             <div class="row mx-0 mt-5 align-items-center">
                 <hr class="col m-0">
                 <div class="col">
-                    <a href="#" class="btn">VIEW ALL PROJECTS</a>
+                    <nuxt-link to="/blogs" class="btn">VIEW ALL PROJECTS</nuxt-link>
                 </div>
                 <hr class="col m-0">
             </div>
@@ -136,6 +62,7 @@
 <script>
 export default {
     name: 'AppHomeNews',
+    props: ["blogs"],
     data() {
         return {
         }
@@ -193,6 +120,7 @@ export default {
     }
     .news .image img {
         width: 100%;
+        height: 300px;
     }
     
     .news .image .rollover {

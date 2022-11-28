@@ -25,53 +25,24 @@
             class="owl-carousel"
         >
 
-          <swiper-slide>
+          <swiper-slide v-for="item in testimonials" :key="item.id">
             <div class="item">
               <div class="row m-0 justify-content-center">
                 <div class="col-12 p-0 text-center">
                   <img
                     class="testimonial-image ls-is-cached lazyloaded"
-                    src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-testimonial-113165296.jpg"
+                    :src="item.image"
                     width="150"
                     height="150"
                   />
                 </div>
                 <blockquote>
                   <q class="fusion-clearfix">
-                    “No man but feels more of a man in the world if he have but a
-                    bit of ground that he can call his own. However small it is on
-                    the surface, it is four thousand miles deep; and that is a
-                    very handsome property.”
+                    {{item.description}}
                   </q>
                 </blockquote>
                 <span class="company-name">
-                  <strong>JOHN DOE • PROPERTY INVESTOR</strong>
-                </span>
-              </div>
-            </div>
-          </swiper-slide>
-
-          <swiper-slide>
-            <div class="item">
-              <div class="row m-0 justify-content-center">
-                <div class="col-12 p-0 text-center">
-                  <img
-                    class="testimonial-image ls-is-cached lazyloaded"
-                    src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-testimonial-84268399.jpg"
-                    width="150"
-                    height="150"
-                  />
-                </div>
-                <blockquote>
-                  <q class="fusion-clearfix">
-                    “No man but feels more of a man in the world if he have but a
-                    bit of ground that he can call his own. However small it is on
-                    the surface, it is four thousand miles deep; and that is a
-                    very handsome property.”
-                  </q>
-                </blockquote>
-                <span class="company-name">
-                  <strong>HARRY SMITH • NEW HOME OWNER</strong>
+                  <strong>{{item.title}} • {{item.job}}</strong>
                 </span>
               </div>
             </div>
@@ -103,6 +74,7 @@
 
 export default {
   name: "AppHomeTestominials",
+  props: ["testimonials"],
   data() {
     return {
       swiperOption: {

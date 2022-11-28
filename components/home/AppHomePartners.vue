@@ -15,30 +15,11 @@
             <swiper
                 :options="swiperOption"
                 :breakpoints="breakpoints"
+                class="owl-carousel"
             >
-                <swiper-slide>
+                <swiper-slide v-for="partner in partners" :key="partner.id">
                     <div class="item">
-                        <img class="imgo" src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-logo10-219096700-320x202.png" width="150" height="150">
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="item">
-                        <img class="imgo" src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-logo2-219096700-320x202.png" width="150" height="150">
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="item">
-                        <img class="imgo" src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-logo1-219096700-320x202.png" width="150" height="150">
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="item">
-                        <img class="imgo" src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-logo9-219096700-320x202.png" width="150" height="150">
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="item">
-                        <img class="imgo" src="https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-logo11-219096700-320x202.png" width="150" height="150">
+                        <img class="" :src="partner.image" width="150" height="150">
                     </div>
                 </swiper-slide>
             </swiper>
@@ -51,6 +32,7 @@
 
 export default {
     name: 'AppHomePartners',
+    props: ["partners"],
     components: { 
     //   carousel,
     },
@@ -131,7 +113,7 @@ export default {
     }
 
     .partners .owl-carousel .item img {
-        max-height: 115px;
+        height: 80px !important;
         vertical-align: middle;
         width: auto;
         display: inline;
