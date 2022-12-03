@@ -27,22 +27,38 @@ import AppHomeWork from "../components/home/AppHomeWork.vue";
 
 export default {
   name: "HomePage",
-  async asyncData({ $axios }) {
-    const bannerHead = await $axios.get("/sections/banner");
+  async asyncData({ $axios, app }) {
+    const bannerHead = await $axios.get("/sections/banner", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
-    const topBanner = await $axios.get("/sections/banner-top");
+    const topBanner = await $axios.get("/sections/banner-top", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
     const blogs = await $axios.get("/blogs?latest=1");
 
     const services = await $axios.get("/services");
 
-    const counter = await $axios.get("/sections/counter_success");
+    const counter = await $axios.get("/sections/counter_success", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
     const partners = await $axios.get("/partners");
 
     const testimonials = await $axios.get("/testimonials");
 
-    const bottomBanner = await $axios.get("/sections/banner-bottom");
+    const bottomBanner = await $axios.get("/sections/banner-bottom", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
 
     return {
       bannerHead: bannerHead.data.data,
