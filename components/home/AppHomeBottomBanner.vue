@@ -3,18 +3,17 @@
     <div class="row mx-0 align-items-center">
       <div class="col">
         <div class="banner-title">
-          <p>building inspiring spaces</p>
+          <p>{{bottomBanner.find(one => one.key === 'banner-bottom_title').value}}</p>
         </div>
         <div class="seprator"></div>
         <div class="banner-text">
           <h3>
-            Vivamus sed consectetur tellus dolor sit amet, consectetur
-            adipiscing lorem elit sadip ipsum ets ficilis uns.
+            {{bottomBanner.find(one => one.key === 'banner-bottom_description').value}}
           </h3>
         </div>
       </div>
       <div class="col-auto">
-        <a href="#" class="btn"> GET A FREE QUOTE </a>
+        <a :href="bottomBanner.find(one => one.key === 'banner-bottom_link').value" class="btn"> GET A FREE QUOTE </a>
         <p class="hint">Only takes a few seconds!</p>
       </div>
     </div>
@@ -24,6 +23,7 @@
 <script>
 export default {
   name: "AppHomeBanner",
+  props: ["bottomBanner"],
   data() {
     return {};
   },

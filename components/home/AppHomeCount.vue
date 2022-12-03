@@ -19,53 +19,17 @@
       </div>
       <div class="count-content">
         <div class="row justify-content-around">
-          <div class="count-item col-sm-6 col-lg-3">
-            <font-awesome-icon icon="fa-solid fa-suitcase" />
+          <div v-for="item in counter.find(one => one.key === 'counter_success_list').value" :key="item" class="count-item col-sm-6 col-lg-3">
+            <font-awesome-icon :icon="item.icon" />
             <span class="display-counter">
               <VueJsCounter
                 class="d-inline"
                 :startVal="0"
-                :endVal="4205"
+                :endVal="item.counter"
                 separator=","
               ></VueJsCounter>
             </span>
-            <div class="counter-text">PLANNING APPLICATIONS</div>
-          </div>
-          <div class="count-item col-sm-6 col-lg-3">
-            <font-awesome-icon icon="fa-solid fa-building" />
-            <span class="display-counter">
-              <VueJsCounter
-                class="d-inline"
-                :startVal="0"
-                :endVal="896"
-                separator=","
-              ></VueJsCounter>
-            </span>
-            <div class="counter-text">PLANNING APPLICATIONS</div>
-          </div>
-          <div class="count-item col-sm-6 col-lg-3">
-            <font-awesome-icon icon="fa-solid fa-users" />
-            <span class="display-counter">
-              <VueJsCounter
-                class="d-inline"
-                :startVal="0"
-                :endVal="172"
-                separator=","
-              ></VueJsCounter>
-            </span>
-            <div class="counter-text">PLANNING APPLICATIONS</div>
-          </div>
-          <div class="count-item col-sm-6 col-lg-3">
-            <font-awesome-icon icon="fa-solid fa-globe" />
-            <span class="display-counter">
-              <VueJsCounter
-                class="d-inline"
-                :startVal="0"
-                :endVal="19"
-                separator=","
-              ></VueJsCounter>
-            </span>
-            <div class="counter-text">PLANNING APPLICATIONS</div>
+            <div class="counter-text">{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -93,6 +57,7 @@ import VueJsCounter from "vue-count-to";
 
 export default {
   name: "AppHomeCount",
+  props: ["counter"],
   components: {
     VueJsCounter
   },
