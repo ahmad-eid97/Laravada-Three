@@ -19,8 +19,14 @@
       </div>
       <div class="count-content">
         <div class="row justify-content-around">
-          <div v-for="item in counter.find(one => one.key === 'counter_success_list').value" :key="item" class="count-item col-sm-6 col-lg-3">
-            <font-awesome-icon :icon="item.icon" />
+          <div
+            v-for="item in counter.find(
+              (one) => one.key === 'counter_success_list'
+            ).value"
+            :key="item"
+            class="count-item col-sm-6 col-lg-3"
+          >
+            <i :class="item.icon"></i>
             <span class="display-counter">
               <VueJsCounter
                 class="d-inline"
@@ -29,7 +35,7 @@
                 separator=","
               ></VueJsCounter>
             </span>
-            <div class="counter-text">{{item.title}}</div>
+            <div class="counter-text">{{ item.title }}</div>
           </div>
         </div>
       </div>
@@ -59,7 +65,7 @@ export default {
   name: "AppHomeCount",
   props: ["counter"],
   components: {
-    VueJsCounter
+    VueJsCounter,
   },
   data() {
     return {};
@@ -108,10 +114,10 @@ export default {
   margin-bottom: 55px;
   padding: 30px;
 }
-.count-item  {
+.count-item {
   margin-bottom: 40px;
 }
-.count-item svg {
+.count-item i {
   font-size: 70px;
   color: var(--main-color);
 }
@@ -122,7 +128,7 @@ export default {
   font-weight: 600;
 }
 @include xs {
-  .count-item svg {
+  .count-item i {
     font-size: 40px;
   }
   .count-item .display-counter {

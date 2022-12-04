@@ -16,7 +16,7 @@
             <div class="flip-box-front">
               <div class="flip-box-front-inner">
                 <div class="flip-box-circle">
-                  <font-awesome-icon icon="fa-solid fa-building" />
+                  <i class="fa-solid fa-building"></i>
                 </div>
                 <h2>Buildings</h2>
                 Quis autem vel eum iure reprederit qui in ea voluptate velit
@@ -41,7 +41,7 @@
             <div class="flip-box-front">
               <div class="flip-box-front-inner">
                 <div class="flip-box-circle">
-                  <font-awesome-icon icon="fa-solid fa-rotate" />
+                  <i class="fa-solid fa-rotate"></i>
                 </div>
                 <h2>Renovate</h2>
                 Quis autem vel eum iure reprederit qui in ea voluptate velit
@@ -66,7 +66,7 @@
             <div class="flip-box-front">
               <div class="flip-box-front-inner">
                 <div class="flip-box-circle">
-                  <font-awesome-icon icon="fa-solid fa-house-chimney" />
+                  <i class="fa-solid fa-house-chimney"></i>
                 </div>
                 <h2>Construct</h2>
                 Quis autem vel eum iure reprederit qui in ea voluptate velit
@@ -91,7 +91,7 @@
             <div class="flip-box-front">
               <div class="flip-box-front-inner">
                 <div class="flip-box-circle">
-                  <font-awesome-icon icon="fa-solid fa-truck-moving" />
+                  <i class="fa-solid fa-truck-moving"></i>
                 </div>
                 <h2>Exclusive</h2>
                 Quis autem vel eum iure reprederit qui in ea voluptate velit
@@ -118,11 +118,11 @@
 
 <script>
 export default {
-  name: 'AppHomeFeatures',
-  data () {
-    return {}
-  }
-}
+  name: "AppHomeFeatures",
+  data() {
+    return {};
+  },
+};
 </script>
 <style lang="scss">
 .features {
@@ -134,9 +134,9 @@ export default {
   padding: 3% 15% !important;
 }
 @include xs {
-.features .intro-text {
-  padding: 3% 2% !important;
-}
+  .features .intro-text {
+    padding: 3% 2% !important;
+  }
 }
 .features h2 {
   font-weight: 400;
@@ -209,7 +209,7 @@ export default {
   padding: 18px;
   margin: 0 auto 10px;
 }
-.features .flip-box .flip-box-circle svg {
+.features .flip-box .flip-box-circle i {
   font-size: 24px;
 }
 .features .flip-box h2 {

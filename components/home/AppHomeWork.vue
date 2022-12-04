@@ -24,10 +24,10 @@
               <div class="rollover">
                 <div class="rollover-content">
                   <a class="rollover-link" href="#">
-                    <font-awesome-icon icon="fa-solid fa-link" />
+                    <i class="fa-solid fa-link"></i>
                   </a>
                   <a class="rollover-link" href="#">
-                    <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
                   </a>
 
                   <h4><a href="#">Florida Heath Facility</a></h4>
