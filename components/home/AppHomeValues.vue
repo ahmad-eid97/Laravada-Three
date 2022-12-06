@@ -10,7 +10,7 @@
           minim veniam.
         </p>
       </div>
-      <div class="row">
+      <div class="row" v-if="services.length >= 1">
         <div
           v-for="service in services.slice(0, 4)"
           :key="service.id"

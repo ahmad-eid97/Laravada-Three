@@ -10,7 +10,7 @@
           minim veniam.
         </p>
       </div>
-      <div class="row justify-content-center m-0">
+      <div class="row justify-content-center m-0" v-if="blogs.length >= 1">
         <div
           v-for="blog in blogs"
           :key="blog.id"

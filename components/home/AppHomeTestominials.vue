@@ -21,10 +21,10 @@
         <h2>Our Core Values</h2>
         <div class="col-12 seprator"></div>
         <swiper
-            :options="swiperOption"
-            class="owl-carousel"
+          :options="swiperOption"
+          class="owl-carousel"
+          v-if="testimonials.length >= 1"
         >
-
           <swiper-slide v-for="item in testimonials" :key="item.id">
             <div class="item">
               <div class="row m-0 justify-content-center">
@@ -38,18 +38,16 @@
                 </div>
                 <blockquote>
                   <q class="fusion-clearfix">
-                    {{item.description}}
+                    {{ item.description }}
                   </q>
                 </blockquote>
                 <span class="company-name">
-                  <strong>{{item.title}} • {{item.job}}</strong>
+                  <strong>{{ item.title }} • {{ item.job }}</strong>
                 </span>
               </div>
             </div>
           </swiper-slide>
-
         </swiper>
-
       </div>
       <div class="testominials-sperator">
         <svg
@@ -71,7 +69,6 @@
 </template>
 
 <script>
-
 export default {
   name: "AppHomeTestominials",
   props: ["testimonials"],
@@ -80,8 +77,8 @@ export default {
       swiperOption: {
         loop: true,
         slidesPerView: 1,
-        spaceBetween: 50
-      }
+        spaceBetween: 50,
+      },
     };
   },
 };

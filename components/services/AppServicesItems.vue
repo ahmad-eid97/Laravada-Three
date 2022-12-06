@@ -11,7 +11,7 @@
           nec
         </p>
       </div>
-      <div class="row pt-45">
+      <div class="row pt-45" v-if="services.services.length >= 1">
         <div
           v-for="service in services.services"
           :key="service.id"

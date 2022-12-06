@@ -13,7 +13,7 @@
       <div class="row">
         <CoolLightBox :items="items" :index="index" @close="index = null" />
         <div class="images-wrapper">
-          <div class="row justify-content-center m-0">
+          <div class="row justify-content-center m-0" v-if="items.length >= 1">
             <div
               class="image col-sm-6 col-md-4 my-2"
               v-for="(image, imageIndex) in items"

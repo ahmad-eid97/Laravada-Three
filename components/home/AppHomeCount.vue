@@ -18,7 +18,7 @@
         </svg>
       </div>
       <div class="count-content">
-        <div class="row justify-content-around">
+        <div class="row justify-content-around" v-if="counter.length">
           <div
             v-for="item in counter.find(
               (one) => one.key === 'counter_success_list'
