@@ -94,7 +94,7 @@ export default {
   border-radius: 12px;
   object-fit: contain;
 }
-.side-bar-widget .blog-gallery li a svig {
+.side-bar-widget .blog-gallery li a i {
   position: absolute;
   z-index: 1;
   top: 50%;

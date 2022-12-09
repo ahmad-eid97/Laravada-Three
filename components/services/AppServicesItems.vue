@@ -57,13 +57,6 @@ export default {
 </script>
 
 <style>
-.section-title {
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-  text-align: center;
-}
-
 .services-style-area .section-title span {
   margin-bottom: 8px;
   font-weight: 600;
@@ -98,6 +91,7 @@ export default {
   margin-bottom: 30px;
   color: #252525;
   height: 100%;
+  cursor: pointer;
 }
 .services-card h3 a {
   color: #252525;
