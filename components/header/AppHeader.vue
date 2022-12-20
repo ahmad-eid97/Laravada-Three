@@ -37,8 +37,13 @@
           <b-nav-item :to="localePath('/services')">SERVICES</b-nav-item>
           <b-nav-item :to="localePath('/testimonials')">WORK</b-nav-item>
           <b-nav-item :to="localePath('/blogs')">ARTICLES</b-nav-item>
+          <b-nav-item :to="localePath('/careers')">CAREER</b-nav-item>
+          <b-nav-item :to="localePath('/events')">EVENTS</b-nav-item>
           <a href="#" class="btn">GET QUOTE</a>
           <lang-switch></lang-switch>
+          <div v-if="$store.state.user" class="logout" @click="logout">
+            <i class="fa-regular fa-right-from-bracket"></i>
+          </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -66,6 +71,12 @@ export default {
   },
   mounted() {},
   methods: {
+    logout() {
+      this.$store.commit("setUserData", null);
+      this.$cookies.remove("cms-auth");
+      this.$cookies.remove("cms-user");
+      this.$router.push(this.localePath("/login"));
+    },
     handleScroll() {
       if (window.pageYOffset > 200) {
         if (this.topOfPage) this.topOfPage = false;
@@ -89,6 +100,17 @@ header {
   z-index: 9;
   transform: translateY(0px);
   padding: 0;
+}
+.logout {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 @include md {
