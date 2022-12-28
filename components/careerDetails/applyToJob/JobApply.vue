@@ -234,7 +234,7 @@ export default {
     width: 100%;
     margin-top: 20px;
     background-color: var(--main-color);
-    color: #fff;
+    color: #000;
     padding: 10px 20px;
     border: 1px solid var(--main-color);
     &:hover {

@@ -130,7 +130,7 @@ export default {
         min-width: 200px;
         &.apply {
           background: var(--main-color);
-          color: #fff;
+          color: #000;
           border-color: var(--main-color);
           &:hover {
             background-color: transparent;
@@ -215,7 +215,7 @@ export default {
         border-radius: 5px;
         &.apply {
           background: var(--main-color);
-          color: #fff;
+          color: #000;
           border-color: var(--main-color);
           &:hover {
             background-color: transparent;
