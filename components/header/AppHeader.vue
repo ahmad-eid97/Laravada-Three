@@ -14,27 +14,38 @@
     </div>
     <b-navbar
       :class="!topOfPage ? 'onScroll' : ''"
-      toggleable="lg"
+      toggleable="lg justify-content-between"
       class="navo"
     >
       <b-navbar-brand :href="localePath('/')">
         <img src="/assets/images/logo.png" alt="logoImage" />
       </b-navbar-brand>
 
-      <b-navbar-toggle target="navbar-toggle-collapse">
-        <template #default="{ expanded }">
-          <span
-            class="menu-trigger"
-            :class="expanded ? 'active' : ''"
-            id="menu03"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </template>
-      </b-navbar-toggle>
-
+      <div class="d-flex align-items-center optionsWrapper">
+        <b-navbar-toggle target="navbar-toggle-collapse">
+          <template #default="{ expanded }">
+            <span
+              class="menu-trigger"
+              :class="expanded ? 'active' : ''"
+              id="menu03"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </template>
+        </b-navbar-toggle>
+        <div class="d-flex align-items-center smallScr">
+          <lang-switch></lang-switch>
+          <div class="m-0 cartIcon" @click="openCart = !openCart">
+            <span>{{ $store.state.cartItems.length }}</span>
+            <i class="fa-regular fa-cart-plus"></i>
+          </div>
+          <div v-if="$store.state.user" class="logout" @click="logout">
+            <i class="fa-regular fa-right-from-bracket"></i>
+          </div>
+        </div>
+      </div>
       <b-collapse
         id="navbar-toggle-collapse"
         class="ml-auto justify-content-end outer"
@@ -51,14 +62,22 @@
           <b-nav-item :to="localePath('/blogs')">ARTICLES</b-nav-item>
           <b-nav-item :to="localePath('/careers')">CAREER</b-nav-item>
           <b-nav-item :to="localePath('/events')">EVENTS</b-nav-item>
+          <b-nav-item
+            :to="localePath('/logout')"
+            v-if="$store.state.user"
+            @click="logout"
+            >Logout</b-nav-item
+          >
           <a href="#" class="btn">GET QUOTE</a>
-          <lang-switch></lang-switch>
-          <div v-if="$store.state.user" class="logout" @click="logout">
-            <i class="fa-regular fa-right-from-bracket"></i>
-          </div>
-          <div class="m-0 cartIcon" @click="openCart = !openCart">
-            <span>{{ $store.state.cartItems.length }}</span>
-            <i class="fa-regular fa-cart-plus"></i>
+          <div class="d-flex align-items-center largeScr">
+            <lang-switch></lang-switch>
+            <div class="m-0 cartIcon" @click="openCart = !openCart">
+              <span>{{ $store.state.cartItems.length }}</span>
+              <i class="fa-regular fa-cart-plus"></i>
+            </div>
+            <div v-if="$store.state.user" class="logout" @click="logout">
+              <i class="fa-regular fa-right-from-bracket"></i>
+            </div>
           </div>
         </b-navbar-nav>
       </b-collapse>
@@ -115,6 +134,9 @@ header {
   box-shadow: rgba(0, 0, 0, 0.07) 0px 5px 5px 0px;
   padding: 0 6%;
   background-color: #fff;
+  @include sm {
+    padding: 10px;
+  }
   .cart {
     width: 390px;
     height: 100vh;
@@ -174,6 +196,9 @@ header {
     &.opened {
       transform: translateX(0);
     }
+    @include xs {
+      width: 350px;
+    }
   }
   .cartIcon {
     border: 1px solid #000;
@@ -184,6 +209,7 @@ header {
     place-items: center;
     cursor: pointer;
     position: relative;
+    margin: 0 10px !important;
     span {
       position: absolute;
       top: -15px;
@@ -196,6 +222,9 @@ header {
       display: grid;
       place-content: center;
       font-size: 1.2rem;
+      @include sm {
+        font-size: 1rem;
+      }
     }
     i {
       color: #000;
@@ -207,9 +236,34 @@ header {
         color: #fff;
       }
     }
+    @include sm {
+      width: 40px;
+      height: 40px;
+      margin: 0 0px !important;
+    }
+  }
+  .optionsWrapper {
+    flex-direction: row !important;
+    @include md {
+      flex-direction: row-reverse !important;
+    }
   }
 }
 
+.smallScr {
+  align-items: center;
+  display: none !important;
+  @include md {
+    display: flex !important;
+  }
+}
+.largeScr {
+  align-items: center;
+  display: flex !important;
+  @include md {
+    display: none !important;
+  }
+}
 .inside {
   background-color: #fff;
   position: relative;
@@ -227,6 +281,9 @@ header {
   place-items: center;
   font-size: 1.2rem;
   cursor: pointer;
+  @include md {
+    display: none;
+  }
 }
 
 @include md {
@@ -355,7 +412,7 @@ header .btn:hover {
   top: 0 !important;
   z-index: 10;
   left: 0 !important;
-  padding: 9px 6% !important;
+  /* padding: 9px 6% !important; */
 }
 
 @media screen and (max-width: 991px) {
