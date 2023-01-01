@@ -66,6 +66,7 @@
             :to="localePath('/logout')"
             v-if="$store.state.user"
             @click="logout"
+            class="outLarge"
             >Logout</b-nav-item
           >
           <a href="#" class="btn">GET QUOTE</a>
@@ -262,6 +263,12 @@ header {
   display: flex !important;
   @include md {
     display: none !important;
+  }
+}
+.outLarge {
+  display: none;
+  @include md {
+    display: inline;
   }
 }
 .inside {
