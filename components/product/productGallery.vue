@@ -30,12 +30,14 @@ export default {
 .productGallery {
   width: 95%;
   .item {
+    padding-left: 20px;
     width: 100%;
     height: 500px;
-    padding-left: 20px;
+    overflow: hidden;
     img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
     }
     @include md {
       margin-bottom: 30px;

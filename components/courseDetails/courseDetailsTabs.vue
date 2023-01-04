@@ -89,7 +89,7 @@ export default {
       &.active {
         background-color: var(--main-color);
         border-color: var(--main-color);
-        color: #fff;
+        color: #000;
       }
       @include xs {
         padding: 8px 20px;
