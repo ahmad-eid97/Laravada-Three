@@ -65,7 +65,7 @@ export default {
       topBanner: topBanner.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
-      blogs: blogs.data.data.blogs,
+      blogs: blogs.data.data.blogs.slice(0, 6),
       counter: counter.data.data,
       partners: partners.data.data.partners,
       bottomBanner: bottomBanner.data.data,

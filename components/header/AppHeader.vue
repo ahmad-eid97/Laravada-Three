@@ -331,7 +331,7 @@ header {
 }
 
 .navbar-brand img {
-  max-width: 190px;
+  max-width: 160px;
 }
 .nav-item {
   position: relative;
@@ -365,7 +365,7 @@ header {
   border-top-color: #fff;
 }
 .nav-link {
-  padding: 40px 27px !important;
+  padding: 25px 20px !important;
   font-weight: 600;
   font-size: 15px;
 }
@@ -449,7 +449,7 @@ header .btn:hover {
   top: 0 !important;
   z-index: 10;
   left: 0 !important;
-  /* padding: 9px 6% !important; */
+  padding: 10px 27px !important;
 }
 
 @media screen and (max-width: 991px) {

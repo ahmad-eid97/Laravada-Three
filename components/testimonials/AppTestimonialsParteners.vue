@@ -32,7 +32,7 @@ export default {
 </script>
 <style>
 .about-partners {
-  padding: 45px 100px 45px !important;
+  padding: 45px 100px 10px !important;
   background-color: #ffb536;
 }
 .about-partners::before {

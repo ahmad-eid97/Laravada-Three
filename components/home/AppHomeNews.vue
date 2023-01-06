@@ -21,12 +21,13 @@
               <img :src="blog.image" :alt="blog.title" />
               <div class="rollover">
                 <div class="rollover-content">
-                  <a class="rollover-link" href="#">
-                    <i class="fa-solid fa-link"></i>
-                  </a>
-                  <a class="rollover-link" href="#">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </a>
+                  <div
+                    class="rollover-link"
+                    href="#"
+                    @click="$router.push(`/blog/${blog.id}`)"
+                  >
+                    <i class="fa-duotone fa-eye"></i>
+                  </div>
 
                   <h4>
                     <a href="#">{{ blog.title }}</a>
@@ -174,6 +175,12 @@ export default {
   padding: 14px;
   margin: 15px;
   color: rgb(51, 51, 51);
+  font-size: 25px;
+  display: grid;
+  justify-content: center;
+  place-content: center;
+  margin: auto;
+  cursor: pointer;
 }
 .news .image .rollover-content h4 a {
   font-size: 18px;

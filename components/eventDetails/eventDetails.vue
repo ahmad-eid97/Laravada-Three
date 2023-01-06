@@ -30,6 +30,7 @@ export default {
   .cost,
   .content {
     font-size: 1.3rem;
+    padding: 0 !important;
   }
   .cost {
     color: var(--main-color);

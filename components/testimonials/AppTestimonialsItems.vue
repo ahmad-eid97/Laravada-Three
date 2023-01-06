@@ -81,7 +81,7 @@ export default {
   margin-bottom: 8px;
   font-weight: 600;
   display: block;
-  color: var(--main-color);
+  color: rgb(51, 51, 51) !important;
 }
 .clients-area-two .section-title h2 {
   max-width: 600px;
@@ -135,7 +135,7 @@ export default {
   background: var(--main-color);
 }
 .clients-area p {
-  color: var(--main-color);
+  color: rgb(51, 51, 51);
 }
 .clients-slider-content .svg {
   border-radius: 12px;
@@ -155,6 +155,7 @@ export default {
 .clients-slider-content {
   padding: 30px 0px;
   text-align: center;
+  color: rgb(51, 51, 51) !important;
 }
 
 .clients-slider-content .svg::after {
@@ -173,11 +174,11 @@ export default {
   animation: ripple 2s infinite ease-in-out;
 }
 .clients-area h3 {
-  color: var(--main-color);
+  color: rgb(51, 51, 51);
   margin: 15px 0 10px;
 }
 .clients-area span {
-  color: var(--main-color);
+  color: rgb(51, 51, 51);
 }
 .clients-area .owl-nav {
   position: absolute;
