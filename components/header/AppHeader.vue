@@ -55,21 +55,35 @@
           class="align-items-center inside"
           id="navbar-toggle-collapse"
         >
-          <b-nav-item :to="localePath('/')">HOME</b-nav-item>
-          <b-nav-item :to="localePath('/about')">ABOUT</b-nav-item>
-          <b-nav-item :to="localePath('/services')">SERVICES</b-nav-item>
-          <b-nav-item :to="localePath('/testimonials')">WORK</b-nav-item>
-          <b-nav-item :to="localePath('/blogs')">ARTICLES</b-nav-item>
-          <b-nav-item :to="localePath('/careers')">CAREER</b-nav-item>
-          <b-nav-item :to="localePath('/events')">EVENTS</b-nav-item>
           <b-nav-item
-            :to="localePath('/logout')"
-            v-if="$store.state.user"
-            @click="logout"
-            class="outLarge"
-            >Logout</b-nav-item
+            :to="localePath(`/${item.link}`)"
+            exact
+            v-for="item in $store.state.topMenu"
+            :key="item.id"
           >
-          <a href="#" class="btn">GET QUOTE</a>
+            <span v-if="!item.child.length">{{ item.label }}</span>
+
+            <b-dropdown
+              :text="item.label"
+              block
+              class="dropdownBtn"
+              v-if="item.child.length"
+            >
+              <b-dropdown-item
+                v-for="child in item.child"
+                :key="child.id"
+                :to="localePath('/' + child.link)"
+                >{{ child.label }}</b-dropdown-item
+              >
+            </b-dropdown>
+          </b-nav-item>
+          <b-nav-item v-if="$store.state.user" @click="logout" class="outLarge">
+            Logout
+          </b-nav-item>
+          <b-nav-item class="m-0">
+            <a href="#" class="btn">Get started</a>
+          </b-nav-item>
+
           <div class="d-flex align-items-center largeScr">
             <lang-switch></lang-switch>
             <div class="m-0 cartIcon" @click="openCart = !openCart">
@@ -367,7 +381,7 @@ header {
 .nav-link {
   padding: 25px 20px !important;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 18px;
 }
 .active .nav-link,
 .nav-link:hover {
@@ -479,6 +493,29 @@ header .btn:hover {
     font-weight: 600;
     font-size: 15px;
     text-align: start;
+  }
+}
+.dropdownBtn {
+  margin: 0 !important;
+  button {
+    background: none !important;
+    padding: 0 !important;
+    text-transform: none !important;
+    font-size: 1.1rem !important;
+    font-family: unset !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+    border: none !important;
+    position: relative;
+    top: -3px;
+    /* min-width: 60px !important; */
+    margin: 0 !important;
+    &:hover {
+      color: var(--main-color);
+    }
+  }
+  .dropdown-menu {
+    top: 60px !important;
   }
 }
 </style>
