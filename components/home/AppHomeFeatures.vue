@@ -2,115 +2,47 @@
   <section class="features">
     <div class="container">
       <div class="row intro-text">
-        <h2>specialists in modern construction</h2>
+        <h2>
+          {{ activities.find((one) => one.key === "activities_title").value }}
+        </h2>
         <div class="col-12 seprator"></div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad
-          minim veniam.
+          {{
+            activities.find((one) => one.key === "activities_description").value
+          }}
         </p>
       </div>
       <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="flip-box">
-            <div class="flip-box-front">
-              <div class="flip-box-front-inner">
-                <div class="flip-box-circle">
-                  <i class="fa-solid fa-building"></i>
+        <swiper :options="swiperOption" class="owl-carousel">
+          <swiper-slide
+            v-for="activity in activities.find(
+              (one) => one.key === 'activities_list'
+            ).value"
+            :key="activity.id"
+          >
+            <div class="item">
+              <div class="flip-box">
+                <div class="flip-box-front">
+                  <div class="flip-box-front-inner">
+                    <div class="flip-box-circle">
+                      <i :class="activity.icon"></i>
+                    </div>
+                    <h2>{{ activity.title }}</h2>
+                    {{ activity.description.substring(0, 150) }}
+                    {{ activity.description.length > 150 ? "..." : "" }}
+                  </div>
                 </div>
-                <h2>Buildings</h2>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur.
-              </div>
-            </div>
-            <div class="flip-box-back">
-              <div class="flip-box-back-inner">
-                <h3>Artfully Crafted</h3>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur, vel illum qui dolorem
-                eum.
-                <div class="text-center">
-                  <a href="#" class="btn">Get A Quote</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="flip-box">
-            <div class="flip-box-front">
-              <div class="flip-box-front-inner">
-                <div class="flip-box-circle">
-                  <i class="fa-solid fa-rotate"></i>
-                </div>
-                <h2>Renovate</h2>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur.
-              </div>
-            </div>
-            <div class="flip-box-back">
-              <div class="flip-box-back-inner">
-                <h3>Freshly New</h3>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur, vel illum qui dolorem
-                eum.
-                <div class="text-center">
-                  <a href="#" class="btn">Get A Quote</a>
+                <div class="flip-box-back">
+                  <div class="flip-box-back-inner">
+                    <div class="text-center">
+                      <a :href="activity.link" class="btn">More Details</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="flip-box">
-            <div class="flip-box-front">
-              <div class="flip-box-front-inner">
-                <div class="flip-box-circle">
-                  <i class="fa-solid fa-house-chimney"></i>
-                </div>
-                <h2>Construct</h2>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur.
-              </div>
-            </div>
-            <div class="flip-box-back">
-              <div class="flip-box-back-inner">
-                <h3>Perfect Lines</h3>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur, vel illum qui dolorem
-                eum.
-                <div class="text-center">
-                  <a href="#" class="btn">Get A Quote</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="flip-box">
-            <div class="flip-box-front">
-              <div class="flip-box-front-inner">
-                <div class="flip-box-circle">
-                  <i class="fa-solid fa-truck-moving"></i>
-                </div>
-                <h2>Exclusive</h2>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur.
-              </div>
-            </div>
-            <div class="flip-box-back">
-              <div class="flip-box-back-inner">
-                <h3>Planning</h3>
-                Quis autem vel eum iure reprederit qui in ea voluptate velit
-                esse quam nihil molestiae consequatur, vel illum qui dolorem
-                eum.
-                <div class="text-center">
-                  <a href="#" class="btn">Get A Quote</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </section>
@@ -119,8 +51,39 @@
 <script>
 export default {
   name: "AppHomeFeatures",
+  props: ["activities"],
   data() {
-    return {};
+    return {
+      swiperOption: {
+        slidesPerView: 4,
+        spaceBetween: 50,
+        breakpoints: {
+          // when window width is >= 320px
+          100: {
+            slidesPerView: 1,
+            spaceBetween: 5,
+          },
+          // when window width is >= 480px
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 5,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 5,
+          },
+          992: {
+            slidesPerView: 4,
+            spaceBetween: 5,
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 5,
+          },
+        },
+      },
+    };
   },
 };
 </script>
@@ -265,6 +228,7 @@ export default {
   font-size: 15px;
   font-weight: 600;
   line-height: 34.05px;
+  width: 100%;
 }
 .features .flip-box-back-inner h3 {
   color: rgb(51, 51, 51);

@@ -2,7 +2,7 @@
   <div class="home">
     <app-home-intro :bannerHead="bannerHead" />
     <app-home-banner :topBanner="topBanner" />
-    <app-home-features />
+    <app-home-features :activities="activities" />
     <app-home-count :counter="counter" />
     <app-home-work />
     <app-home-values :services="services" />
@@ -60,6 +60,12 @@ export default {
       },
     });
 
+    const activities = await $axios.get("/sections/activities", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
     return {
       bannerHead: bannerHead.data.data,
       topBanner: topBanner.data.data,
@@ -69,6 +75,7 @@ export default {
       counter: counter.data.data,
       partners: partners.data.data.partners,
       bottomBanner: bottomBanner.data.data,
+      activities: activities.data.data,
     };
   },
   components: {
