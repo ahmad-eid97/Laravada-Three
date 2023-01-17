@@ -80,9 +80,7 @@
           <b-nav-item v-if="$store.state.user" @click="logout" class="outLarge">
             Logout
           </b-nav-item>
-          <b-nav-item class="m-0">
-            <a href="#" class="btn">Get started</a>
-          </b-nav-item>
+          <a href="#" class="btn">Get started</a>
 
           <div class="d-flex align-items-center largeScr">
             <lang-switch></lang-switch>
@@ -349,6 +347,9 @@ header {
 }
 .nav-item {
   position: relative;
+  & > .dropdown {
+    display: none;
+  }
 }
 .nav-item::after {
   content: " ";
@@ -485,8 +486,9 @@ header .btn:hover {
     background-color: var(--main-color);
   }
   .nav-item.active .nav-link,
-  .nav-item:hover .nav-link {
-    color: #000;
+  .nav-item:hover .nav-link,
+  .nav-item:hover button {
+    color: #000 !important;
   }
   .nav-link {
     padding: 16px 20px !important;
@@ -496,7 +498,9 @@ header .btn:hover {
   }
 }
 .dropdownBtn {
+  background: transparent !important;
   margin: 0 !important;
+  border: none !important;
   button {
     background: none !important;
     padding: 0 !important;
@@ -508,10 +512,16 @@ header .btn:hover {
     border: none !important;
     position: relative;
     top: -3px;
-    /* min-width: 60px !important; */
+    min-width: unset !important;
     margin: 0 !important;
+    width: 100%;
+    min-height: 30px;
+    text-align: unset !important;
     &:hover {
       color: var(--main-color);
+    }
+    @include md {
+      font-size: 1rem !important;
     }
   }
   .dropdown-menu {

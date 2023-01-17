@@ -11,27 +11,32 @@
         </p>
       </div>
       <div class="row">
-        <CoolLightBox :items="items" :index="index" @close="index = null" />
+        <CoolLightBox
+          :items="projects.map((one) => one.image)"
+          :index="index"
+          @close="index = null"
+        />
         <div class="images-wrapper">
           <div class="row justify-content-center m-0" v-if="items.length >= 1">
             <div
               class="image col-sm-6 col-md-4 my-2"
-              v-for="(image, imageIndex) in items"
+              v-for="(project, imageIndex) in projects"
               :key="imageIndex"
               @click="index = imageIndex"
-              :style="{ backgroundImage: 'url(' + image + ')' }"
+              :style="{ backgroundImage: 'url(' + project.image + ')' }"
             >
               <div class="rollover">
                 <div class="rollover-content">
-                  <a class="rollover-link" href="#">
+                  <span class="rollover-link" href="">
                     <i class="fa-solid fa-link"></i>
-                  </a>
-                  <a class="rollover-link" href="#">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </a>
+                  </span>
 
-                  <h4><a href="#">Florida Heath Facility</a></h4>
-                  <p><a href="#">Commercial</a></p>
+                  <h4>
+                    <a href="#">{{ project.title }}</a>
+                  </h4>
+                  <p>
+                    <a href="#">{{ project.start_date }}</a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -41,7 +46,7 @@
       <div class="row mx-0 mt-5 align-items-center">
         <hr class="col m-0" />
         <div class="col">
-          <a href="#" class="btn">VIEW ALL PROJECTS</a>
+          <nuxt-link to="/courses" class="btn">VIEW ALL PROJECTS</nuxt-link>
         </div>
         <hr class="col m-0" />
       </div>
@@ -52,6 +57,7 @@
 <script>
 export default {
   name: "AppHomeWork",
+  props: ["projects"],
   data() {
     return {
       items: [
@@ -104,7 +110,8 @@ export default {
 .work .image {
   width: 350px;
   height: 350px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   padding: 0;
   position: relative;
   margin: 0 20px;
@@ -156,6 +163,7 @@ export default {
   padding: 14px;
   margin: 15px;
   color: rgb(51, 51, 51);
+  cursor: pointer;
 }
 .work .image .rollover-content h4 a {
   font-size: 18px;

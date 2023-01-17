@@ -3,8 +3,9 @@
     <app-home-intro :bannerHead="bannerHead" />
     <app-home-banner :topBanner="topBanner" />
     <app-home-features :activities="activities" />
+    <app-home-steps :steps="steps" />
     <app-home-count :counter="counter" />
-    <app-home-work />
+    <app-home-work :projects="projects" />
     <app-home-values :services="services" />
     <app-home-testominials :testimonials="testimonials" />
     <app-home-news :blogs="blogs" />
@@ -24,6 +25,7 @@ import AppHomePartners from "../components/home/AppHomePartners.vue";
 import AppHomeTestominials from "../components/home/AppHomeTestominials.vue";
 import AppHomeValues from "../components/home/AppHomeValues.vue";
 import AppHomeWork from "../components/home/AppHomeWork.vue";
+import AppHomeSteps from "../components/home/AppHomeSteps.vue";
 
 export default {
   name: "HomePage",
@@ -66,6 +68,14 @@ export default {
       },
     });
 
+    const projects = await $axios.get("/portfolios");
+
+    const steps = await $axios.get("/sections/steps", {
+      headers: {
+        "Accept-Language": app.i18n.locale,
+      },
+    });
+
     return {
       bannerHead: bannerHead.data.data,
       topBanner: topBanner.data.data,
@@ -76,6 +86,8 @@ export default {
       partners: partners.data.data.partners,
       bottomBanner: bottomBanner.data.data,
       activities: activities.data.data,
+      projects: projects.data.data.portfolios,
+      steps: steps.data.data,
     };
   },
   components: {
@@ -89,6 +101,7 @@ export default {
     AppHomeNews,
     AppHomePartners,
     AppHomeBottomBanner,
+    AppHomeSteps,
   },
 };
 </script>
