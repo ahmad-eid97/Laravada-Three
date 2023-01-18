@@ -1,19 +1,36 @@
 <template>
   <div class="banner-bottom">
-    <div class="row mx-0 align-items-center">
+    <div class="specLayer"></div>
+    <div class="row mx-0 align-items-center wrapper">
       <div class="col">
         <div class="banner-title">
-          <p>{{bottomBanner.find(one => one.key === 'banner-bottom_title').value}}</p>
+          <p>
+            {{
+              bottomBanner.find((one) => one.key === "banner-bottom_title")
+                .value
+            }}
+          </p>
         </div>
         <div class="seprator"></div>
         <div class="banner-text">
           <h3>
-            {{bottomBanner.find(one => one.key === 'banner-bottom_description').value}}
+            {{
+              bottomBanner.find(
+                (one) => one.key === "banner-bottom_description"
+              ).value
+            }}
           </h3>
         </div>
       </div>
       <div class="col-auto">
-        <a :href="bottomBanner.find(one => one.key === 'banner-bottom_link').value" class="btn"> GET A FREE QUOTE </a>
+        <a
+          :href="
+            bottomBanner.find((one) => one.key === 'banner-bottom_link').value
+          "
+          class="btn"
+        >
+          GET A FREE QUOTE
+        </a>
         <p class="hint">Only takes a few seconds!</p>
       </div>
     </div>
@@ -37,7 +54,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(64, 64, 64);
-  background-image: url("https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/about-call-to-action-57862405.jpg");
+  background-image: url("../../static/assets/images/3.jpg");
   background-attachment: fixed;
   min-height: 150px;
   padding-top: 100px;
@@ -46,6 +63,11 @@ export default {
   padding-bottom: 90px;
   margin-bottom: 0px;
   padding-left: 30px;
+  position: relative;
+}
+.wrapper {
+  position: relative;
+  z-index: 2;
 }
 .banner-title {
   font-size: 32px;

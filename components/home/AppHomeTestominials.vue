@@ -1,5 +1,6 @@
 <template>
   <section class="testominials">
+    <div class="specLayer"></div>
     <div class="testominials-back"></div>
     <div class="testominials-inner">
       <div class="testominials-sperator">
@@ -113,7 +114,7 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-parallax-144609983.jpg");
+  background-image: url("../../static/assets/images/5.jpg");
   min-height: 150px;
   background-attachment: fixed;
 }
@@ -135,6 +136,8 @@ export default {
   text-transform: capitalize;
   margin-bottom: 20px;
   color: #fff;
+  position: relative;
+  z-index: 3;
 }
 .testominials .content .seprator {
   align-self: center;

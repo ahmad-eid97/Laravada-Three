@@ -1,5 +1,6 @@
 <template>
   <section class="count-container">
+    <div class="specLayer"></div>
     <div class="count"></div>
     <div class="count-inner">
       <div class="count-sperator">
@@ -73,6 +74,15 @@ export default {
 };
 </script>
 <style lang="scss">
+.specLayer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .count-container {
   background-color: rgba(255, 255, 255, 0);
   background-position: center center;
@@ -90,6 +100,10 @@ export default {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+svg {
+  position: relative;
+  z-index: 2;
+}
 .count {
   pointer-events: none;
   width: 100%;
@@ -102,7 +116,7 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-244125289.jpg");
+  background-image: url("../../static/assets/images/4.jpg");
   min-height: 150px;
   background-attachment: fixed;
 }
@@ -113,6 +127,8 @@ export default {
   margin-top: 100px;
   margin-bottom: 55px;
   padding: 30px;
+  position: relative;
+  z-index: 2;
 }
 .count-item {
   margin-bottom: 40px;
