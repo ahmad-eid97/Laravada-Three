@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <app-home-intro :bannerHead="bannerHead" />
+    <app-home-intro :slides="slides" />
     <app-home-banner :topBanner="topBanner" />
     <app-home-features :activities="activities" />
     <app-home-steps :steps="steps" />
@@ -30,7 +30,7 @@ import AppHomeSteps from "../components/home/AppHomeSteps.vue";
 export default {
   name: "HomePage",
   async asyncData({ $axios, app }) {
-    const bannerHead = await $axios.get("/sections/banner", {
+    const slides = await $axios.get("/sliders", {
       headers: {
         "Accept-Language": app.i18n.locale,
       },
@@ -77,7 +77,7 @@ export default {
     });
 
     return {
-      bannerHead: bannerHead.data.data,
+      slides: slides.data.data.sliders,
       topBanner: topBanner.data.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,

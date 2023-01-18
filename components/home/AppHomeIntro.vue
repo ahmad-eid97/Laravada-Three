@@ -1,31 +1,43 @@
 <template>
   <section class="intro">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12">
-          <h1>
-            {{ bannerHead.find((one) => one.key === "banner_title").value }}
-          </h1>
-          <p>
-            {{ bannerHead.find((one) => one.key === "banner_sub_title").value }}
-          </p>
-          <a href="/blogs" class="btn alt"> Explore Recent Work </a>
-          <a
-            :href="bannerHead.find((one) => one.key === 'banner_link').value"
-            class="btn"
-          >
-            Get A Quote Today
-          </a>
+    <VueSlickCarousel :arrows="true" :fade="true" :dots="false">
+      <div
+        class="item item-1"
+        v-for="slide in slides"
+        :key="slide.id"
+        :style="{ backgroundImage: `url(${slide.background})` }"
+      >
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12">
+              <h1>
+                {{ slide.title }}
+              </h1>
+              <p>
+                {{ slide.description }}
+              </p>
+              <a :href="slide.link" class="btn alt"
+                ><i class="fa-brands fa-mixcloud mx-2"></i> Explore solutions</a
+              >
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </VueSlickCarousel>
   </section>
 </template>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+import "animate.css/animate.css";
 export default {
   name: "AppHomeIntro",
-  props: ["bannerHead"],
+  props: ["slides"],
+  components: {
+    VueSlickCarousel,
+  },
   data() {
     return {};
   },
@@ -40,13 +52,13 @@ export default {
   border-color: var(--awb-color2);
   border-style: solid;
   background-size: cover;
-  background-image: url("https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-slider-62528242.jpg");
-  padding-top: 20px;
+  /* background-image: url("https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2015/12/home-slider-62528242.jpg"); */
+  padding-top: 0px;
   margin-top: 0px;
-  padding-right: 30px;
-  padding-bottom: 20px;
+  /* padding-right: 30px; */
+  padding-bottom: 0px;
   margin-bottom: 0px;
-  padding-left: 30px;
+  /* padding-left: 30px; */
   min-height: calc(100vh - 116px);
 }
 .intro .container {
@@ -123,5 +135,11 @@ export default {
   color: rgb(51, 51, 51);
   background-color: var(--main-color);
   border-color: var(--main-color);
+}
+.slick-prev {
+  left: 0;
+}
+.slick-next {
+  right: 20px;
 }
 </style>

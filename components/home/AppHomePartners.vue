@@ -21,6 +21,7 @@
         <swiper-slide v-for="partner in partners" :key="partner.id">
           <div class="item">
             <img class="" :src="partner.image" width="150" height="150" />
+            <h5>{{ partner.title }}</h5>
           </div>
         </swiper-slide>
       </swiper>
@@ -109,6 +110,7 @@ export default {
   font-size: 15px;
   font-weight: 500;
   line-height: 34.05px;
+  margin-bottom: 40px;
 }
 
 .partners .owl-carousel .item img {
@@ -116,5 +118,8 @@ export default {
   vertical-align: middle;
   width: auto;
   display: inline;
+}
+.partners .owl-carousel .item h5 {
+  margin-top: 10px;
 }
 </style>
