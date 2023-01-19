@@ -80,7 +80,7 @@
           <b-nav-item v-if="$store.state.user" @click="logout" class="outLarge">
             Logout
           </b-nav-item>
-          <a href="#" class="btn">Get started</a>
+          <a href="/qoutation" class="btn">Get Qoutation</a>
 
           <div class="d-flex align-items-center largeScr">
             <lang-switch></lang-switch>

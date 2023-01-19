@@ -24,8 +24,7 @@
       </div>
       <div class="col-auto">
         <a
-          :href="
-            bottomBanner.find((one) => one.key === 'banner-bottom_link').value
+          href="/qoutation
           "
           class="btn"
         >
