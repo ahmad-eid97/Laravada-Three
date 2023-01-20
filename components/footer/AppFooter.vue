@@ -1,5 +1,6 @@
 <template>
   <footer>
+    <subscribe />
     <div class="widgets">
       <div class="row mx-0">
         <div class="col-sm-6 col-md-3 text-start">
@@ -145,9 +146,10 @@
 </template>
 
 <script>
+import Subscribe from "../subscribe/subscribe.vue";
 export default {
   name: "AppFooter",
-  components: {},
+  components: { Subscribe },
   data() {
     return {};
   },
