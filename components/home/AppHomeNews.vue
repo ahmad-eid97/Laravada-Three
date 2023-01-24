@@ -59,7 +59,7 @@
       <div class="row mx-0 mt-5 align-items-center">
         <hr class="col m-0" />
         <div class="col">
-          <nuxt-link to="/blogs" class="btn">VIEW ALL PROJECTS</nuxt-link>
+          <nuxt-link to="/blogs" class="btn">VIEW ALL TOPICS</nuxt-link>
         </div>
         <hr class="col m-0" />
       </div>

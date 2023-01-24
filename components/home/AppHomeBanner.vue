@@ -17,6 +17,134 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    document
+      .querySelector(".banner")
+      .style.setProperty(
+        "--bannerTop-bg",
+        this.topBanner.find(
+          (one) => one.key === "banner-top_background_active_section"
+        ).value === "color"
+          ? this.topBanner.find(
+              (one) => one.key === "banner-top_background_color_section"
+            ).value
+          : `url(${
+              this.topBanner.find(
+                (one) => one.key === "banner-top_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".banner")
+      .style.setProperty(
+        "--bannerTop-fontSize",
+        `${
+          this.topBanner.find(
+            (one) => one.key === "banner-top_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.topBanner.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ) &&
+      this.topBanner.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".banner")
+        .style.setProperty(
+          "--bannerTop-border-top",
+          `${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".banner")
+        .style.setProperty(
+          "--bannerTop-border-bottom",
+          `${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.topBanner.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ) &&
+      this.topBanner.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".banner")
+        .style.setProperty(
+          "--bannerTop-border-top",
+          `${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.topBanner.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ) &&
+      this.topBanner.find(
+        (one) => one.key === "banner-top_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".banner")
+        .style.setProperty(
+          "--bannerTop-border-bottom",
+          `${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_size_section"
+            ).value
+          }px ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_type_section"
+            ).value
+          } ${
+            this.topBanner.find(
+              (one) => one.key === "banner-top_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 <style lang="scss">
@@ -29,9 +157,23 @@ export default {
   padding-left: 30px;
   background-color: var(--main-color);
   text-align: center;
+
+  --bannerTop-bg: #fff;
+  --bannerTop-fontSize: 20px;
+  --bannerTop-border-top: 0px solid #fff;
+  --bannerTop-border-bottom: 0px solid #fff;
+
+  background: var(--bannerTop-bg);
+  border-top: var(--bannerTop-border-top);
+  border-bottom: var(--bannerTop-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h2 {
+    font-size: var(--bannerTop-fontSize);
+  }
 }
 .banner h2 {
-  font-size: 32px;
+  /* font-size: 32px; */
   font-weight: 400;
   line-height: 41.6px;
   letter-spacing: 1px;

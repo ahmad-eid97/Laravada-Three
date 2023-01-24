@@ -71,6 +71,134 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    document
+      .querySelector(".count-container")
+      .style.setProperty(
+        "--bannerTop-bg",
+        this.counter.find(
+          (one) => one.key === "counter_success_background_active_section"
+        ).value === "color"
+          ? this.counter.find(
+              (one) => one.key === "counter_success_background_color_section"
+            ).value
+          : `url(${
+              this.counter.find(
+                (one) => one.key === "counter_success_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".count-container")
+      .style.setProperty(
+        "--bannerTop-fontSize",
+        `${
+          this.counter.find(
+            (one) => one.key === "counter_success_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ) &&
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".count-container")
+        .style.setProperty(
+          "--bannerTop-border-top",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".count-container")
+        .style.setProperty(
+          "--bannerTop-border-bottom",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ) &&
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".count-container")
+        .style.setProperty(
+          "--bannerTop-border-top",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ) &&
+      this.counter.find(
+        (one) => one.key === "counter_success_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".count-container")
+        .style.setProperty(
+          "--bannerTop-border-bottom",
+          `${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_size_section"
+            ).value
+          }px ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_type_section"
+            ).value
+          } ${
+            this.counter.find(
+              (one) => one.key === "counter_success_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 <style lang="scss">
@@ -99,6 +227,17 @@ export default {
   margin-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 0px;
+
+  --bannerTop-bg: #fff;
+  --bannerTop-fontSize: 20px;
+  --bannerTop-border-top: 0px solid #fff;
+  --bannerTop-border-bottom: 0px solid #fff;
+
+  background: var(--bannerTop-bg) !important;
+  border-top: var(--bannerTop-border-top);
+  border-bottom: var(--bannerTop-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 svg {
   position: relative;
@@ -116,7 +255,7 @@ svg {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../../static/assets/images/4.jpg");
+  /* background-image: url("../../static/assets/images/4.jpg"); */
   min-height: 150px;
   background-attachment: fixed;
 }

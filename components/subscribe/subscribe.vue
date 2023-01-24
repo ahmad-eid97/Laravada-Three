@@ -39,6 +39,7 @@ export default {
 
       if (response.data.success) {
         this.$store.state.showLoader = false;
+        this.email = "";
         return this.$toast.success("Email subscribed successfully");
       } else {
         this.$store.state.showLoader = false;
@@ -58,6 +59,12 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    h3 {
+      margin-bottom: 0;
+      @include md {
+        margin-bottom: 10px;
+      }
+    }
     .action {
       display: flex;
       align-items: center;

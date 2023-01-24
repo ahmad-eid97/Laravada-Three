@@ -1,5 +1,5 @@
 <template>
-  <section class="features">
+  <section class="activities">
     <div class="container">
       <div class="row intro-text">
         <h2>
@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: "AppHomeFeatures",
+  name: "AppHomeactivities",
   props: ["activities"],
   data() {
     return {
@@ -85,30 +85,172 @@ export default {
       },
     };
   },
+  mounted() {
+    document
+      .querySelector(".activities")
+      .style.setProperty(
+        "--acttivities-bg",
+        this.activities.find(
+          (one) => one.key === "activities_background_active_section"
+        ).value === "color"
+          ? this.activities.find(
+              (one) => one.key === "activities_background_color_section"
+            ).value
+          : `url(${
+              this.activities.find(
+                (one) => one.key === "activities_background_image_section"
+              ).value
+            })`
+      );
+
+    document
+      .querySelector(".activities")
+      .style.setProperty(
+        "--acttivities-fontSize",
+        `${
+          this.activities.find(
+            (one) => one.key === "activities_font_size_section"
+          ).value
+        }px`
+      );
+
+    if (
+      this.activities.find(
+        (one) => one.key === "activities_border_position_section"
+      ) &&
+      this.activities.find(
+        (one) => one.key === "activities_border_position_section"
+      ).value === "both"
+    ) {
+      document
+        .querySelector(".activities")
+        .style.setProperty(
+          "--acttivities-border-top",
+          `${
+            this.activities.find(
+              (one) => one.key === "activities_border_size_section"
+            ).value
+          }px ${
+            this.activities.find(
+              (one) => one.key === "activities_border_type_section"
+            ).value
+          } ${
+            this.activities.find(
+              (one) => one.key === "activities_border_color_section"
+            ).value
+          }`
+        );
+
+      document
+        .querySelector(".activities")
+        .style.setProperty(
+          "--acttivities-border-bottom",
+          `${
+            this.activities.find(
+              (one) => one.key === "activities_border_size_section"
+            ).value
+          }px ${
+            this.activities.find(
+              (one) => one.key === "activities_border_type_section"
+            ).value
+          } ${
+            this.activities.find(
+              (one) => one.key === "activities_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.activities.find(
+        (one) => one.key === "activities_border_position_section"
+      ) &&
+      this.activities.find(
+        (one) => one.key === "activities_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".activities")
+        .style.setProperty(
+          "--acttivities-border-top",
+          `${
+            this.activities.find(
+              (one) => one.key === "activities_border_size_section"
+            ).value
+          }px ${
+            this.activities.find(
+              (one) => one.key === "activities_border_type_section"
+            ).value
+          } ${
+            this.activities.find(
+              (one) => one.key === "activities_border_color_section"
+            ).value
+          }`
+        );
+    } else if (
+      this.activities.find(
+        (one) => one.key === "activities_border_position_section"
+      ) &&
+      this.activities.find(
+        (one) => one.key === "activities_border_position_section"
+      ).value === "top"
+    ) {
+      document
+        .querySelector(".activities")
+        .style.setProperty(
+          "--acttivities-border-bottom",
+          `${
+            this.activities.find(
+              (one) => one.key === "activities_border_size_section"
+            ).value
+          }px ${
+            this.activities.find(
+              (one) => one.key === "activities_border_type_section"
+            ).value
+          } ${
+            this.activities.find(
+              (one) => one.key === "activities_border_color_section"
+            ).value
+          }`
+        );
+    }
+  },
 };
 </script>
 <style lang="scss">
-.features {
-  padding: 8%;
+.activities {
+  padding: 50px 0;
   margin-top: 42px;
-  margin-bottom: 20px;
+
+  --acttivities-bg: #fff;
+  --acttivities-fontSize: 20px;
+  --acttivities-border-top: 0px solid #fff;
+  --acttivities-border-bottom: 0px solid #fff;
+
+  background: var(--acttivities-bg);
+  border-top: var(--acttivities-border-top);
+  border-bottom: var(--acttivities-border-bottom);
+  background-repeat: no-repeat;
+  background-size: cover;
+  h2 {
+    font-size: var(--acttivities-fontSize);
+  }
 }
-.features .intro-text {
-  padding: 3% 15% !important;
+.activities .intro-text {
+  padding: 20px !important;
 }
 @include xs {
-  .features .intro-text {
+  .activities .intro-text {
     padding: 3% 2% !important;
   }
 }
-.features h2 {
+.activities h2 {
   font-weight: 400;
   line-height: 41.6px;
   letter-spacing: 1px;
   text-transform: capitalize;
   margin-bottom: 20px;
+  text-align: center !important;
 }
-.features .seprator {
+.activities .seprator {
   align-self: center;
   margin-left: auto;
   margin-right: auto;
@@ -120,19 +262,20 @@ export default {
   border-top-width: 2px;
   border-top-style: solid;
 }
-.features p {
+.activities p {
   color: rgb(116, 116, 116);
   font-size: 15px;
   font-weight: 500;
   line-height: 34.05px;
+  text-align: center !important;
 }
-.features .flip-box {
+.activities .flip-box {
   min-height: 325.617px;
   position: relative;
   margin-bottom: 15px;
   perspective: 1000px;
 }
-.features .flip-box .flip-box-front {
+.activities .flip-box .flip-box-front {
   background-color: rgb(245, 245, 245);
   border-color: rgba(255, 255, 255, 0);
   border-radius: 10px;
@@ -163,31 +306,32 @@ export default {
   justify-content: center;
 }
 
-.features .flip-box .flip-box-circle {
+.activities .flip-box .flip-box-circle {
   height: 64px;
   width: 64px;
-  border: 1px solid;
+  border: 1px solid var(--main-color);
   border-radius: 50%;
   background-clip: padding-box;
   padding: 18px;
   margin: 0 auto 10px;
 }
-.features .flip-box .flip-box-circle i {
+.activities .flip-box .flip-box-circle i {
   font-size: 24px;
+  color: var(--main-color);
 }
-.features .flip-box h2 {
+.activities .flip-box h2 {
   color: rgb(51, 51, 51);
   font-size: 25px;
   line-height: 1.3;
   font-weight: 500;
 }
-.features .flip-box-front-inner {
+.activities .flip-box-front-inner {
   color: rgb(116, 116, 116);
   font-size: 15px;
   font-weight: 600;
   line-height: 34.05px;
 }
-.features .flip-box-back {
+.activities .flip-box-back {
   background-color: var(--main-color);
   border-color: rgba(255, 255, 255, 0);
   border-radius: 10px;
@@ -215,22 +359,22 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.features .flip-box:hover .flip-box-front {
+.activities .flip-box:hover .flip-box-front {
   transform: rotateY(180deg);
   z-index: -1;
 }
-.features .flip-box:hover .flip-box-back {
+.activities .flip-box:hover .flip-box-back {
   transform: rotateY(0);
   z-index: 1;
 }
-.features .flip-box-back-inner {
+.activities .flip-box-back-inner {
   color: rgb(116, 116, 116);
   font-size: 15px;
   font-weight: 600;
   line-height: 34.05px;
   width: 100%;
 }
-.features .flip-box-back-inner h3 {
+.activities .flip-box-back-inner h3 {
   color: rgb(51, 51, 51);
   font-size: 18px;
   line-height: 1.52;
@@ -238,7 +382,7 @@ export default {
   margin-top: 0;
   text-transform: uppercase;
 }
-.features .flip-box-back-inner .btn {
+.activities .flip-box-back-inner .btn {
   margin: 20px auto 0;
   background: #fff;
   color: rgb(51, 51, 51);
@@ -250,7 +394,7 @@ export default {
   letter-spacing: 2px;
   line-height: 17px;
 }
-.features .flip-box-back-inner .btn:hover {
+.activities .flip-box-back-inner .btn:hover {
   margin: 20px auto 0;
   color: #fff;
   background: rgb(51, 51, 51);
