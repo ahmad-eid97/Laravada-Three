@@ -123,7 +123,7 @@ export default {
       ) &&
       this.topBanner.find(
         (one) => one.key === "banner-top_border_position_section"
-      ).value === "top"
+      ).value === "bottom"
     ) {
       document
         .querySelector(".banner")

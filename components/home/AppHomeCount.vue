@@ -177,7 +177,7 @@ export default {
       ) &&
       this.counter.find(
         (one) => one.key === "counter_success_border_position_section"
-      ).value === "top"
+      ).value === "bottom"
     ) {
       document
         .querySelector(".count-container")
