@@ -199,6 +199,8 @@ export default {
   border-radius: 0;
   letter-spacing: 2px;
   border: 2px solid #fff;
+  position: relative;
+  z-index: 2;
 }
 .banner .btn:hover {
   color: rgb(51, 51, 51);
