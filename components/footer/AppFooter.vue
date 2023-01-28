@@ -5,104 +5,74 @@
       <div class="row mx-0">
         <div class="col-sm-6 col-md-3 text-start">
           <div class="logo">
-            <img src="/assets/images/logo2.png" alt="logoImage" />
+            <img
+              :src="
+                $store.state.websiteSettings.find((one) => one.key === 'logo')
+                  .plain_value
+              "
+              alt="logoImage"
+            />
           </div>
           <p>
-            We are specialists in the construction of unique and exclusive
-            properties. Our work inspires. We pride ourselves on delivering
-            outstanding quality and design for leading clients across the world.
+            {{
+              $store.state.websiteSettings.find(
+                (one) => one.key === "description"
+              ).plain_value
+            }}
           </p>
-          <a href="#" class="btn"> LEARN MORE </a>
+          <a href="/about" class="btn"> LEARN MORE </a>
         </div>
         <div class="col-sm-6 col-md-3 text-start">
-          <h5>latest tweets</h5>
+          <h5>OTHER PAGES</h5>
           <ul class="footerLinks">
-            <li>
-              <nuxt-link :to="localePath('/contact')">Contact</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="localePath('/faq')">FAQs</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="localePath('/policy')">Privacy Policy</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="localePath('/terms')"
-                >Terms & Conditions</nuxt-link
-              >
+            <li v-for="page in $store.state.footerPages" :key="page.id">
+              <nuxt-link :to="localePath(generatePagePath(page.id))">{{
+                page.name
+              }}</nuxt-link>
             </li>
           </ul>
         </div>
         <div class="col-sm-6 col-md-3 text-start">
-          <h5>contact us today</h5>
-          <ul class="p-0">
+          <h5>CONTACT INFO</h5>
+          <ul class="footer-list footer-contact mb-10">
             <li>
-              <div class="row">
-                <div class="col-auto">
-                  <i class="fa-solid fa-globe"></i>
-                </div>
-                <div class="col p-0">
-                  Corporate Location 1600 Amphitheatre Parkway London WC1 1BA
-                </div>
-              </div>
+              <i class="pe-7s-call"></i> Phone:
+              {{
+                $store.state.websiteSettings.find(
+                  (one) => one.key === "contact_phone"
+                ).plain_value
+              }}
             </li>
             <li>
-              <div class="row">
-                <div class="col-auto">
-                  <i class="fa-solid fa-house-chimney"></i>
-                </div>
-                <div class="col p-0">
-                  Residential Location 9521 Broadsberry Avenue Paddington RC7
-                  9ZA
-                </div>
-              </div>
+              <i class="pe-7s-mail"></i>
+              Email:
+              {{
+                $store.state.websiteSettings.find((one) => one.key === "email")
+                  .plain_value
+              }}
             </li>
             <li>
-              <div class="row">
-                <div class="col-auto">
-                  <i class="fa-solid fa-phone"></i>
-                </div>
-                <div class="col p-0">1.800.458.556 / 1.800.532.2112</div>
-              </div>
-            </li>
-            <li>
-              <div class="row">
-                <div class="col-auto">
-                  <i class="fa-solid fa-envelope"></i>
-                </div>
-                <div class="col p-0">
-                  {{
-                    $store.state.websiteSettings.find(
-                      (one) => one.key === "email"
-                    ).plain_value
-                  }}
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="row">
-                <div class="col-auto">
-                  <i class="fa-solid fa-clock"></i>
-                </div>
-                <div class="col p-0">Monday – Friday: 9:00 AM – 6:00 PM</div>
-              </div>
-            </li>
-            <li>
-              <div class="row">
-                <div class="col-auto">
-                  <i class="fa-solid fa-clock"></i>
-                </div>
-                <div class="col p-0">Saturday – Sunday: 9:00 AM – 12:00 PM</div>
-              </div>
+              <i class="pe-7s-call"></i> Address:
+              {{
+                $store.state.websiteSettings.find(
+                  (one) => one.key === "contact_address"
+                ).plain_value
+              }}
             </li>
           </ul>
         </div>
         <div class="col-sm-6 col-md-3 text-start">
           <h5>our location</h5>
-          <img
-            src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDsUcTjt43mTheN9ruCsQVgBE-wgN6_AfY&amp;language=en&amp;center=Notting+Hill,London&amp;maptype=roadmap&amp;zoom=14&amp;size=382x300&amp;markers=icon:https://avada.theme-fusion.com/construction/wp-content/uploads/sites/55/2017/03/construction_map_pin.png|Notting+Hill,London&amp;scale=2"
-            width="382"
-          />
+          <iframe
+            :src="`https://maps.google.com/maps?q='+${
+              $store.state.websiteSettings.find((one) => one.key === 'latitude')
+                .plain_value
+            }+','+${
+              $store.state.websiteSettings.find(
+                (one) => one.key === 'longitude'
+              ).plain_value
+            }+'&hl=es&z=14&amp;output=embed`"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -153,7 +123,20 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    generatePagePath(id) {
+      switch (id) {
+        case 1:
+          return "/about";
+        case 2:
+          return "/contact";
+        case 3:
+          return "/terms";
+        case 4:
+          return "/policy";
+      }
+    },
+  },
   mounted() {},
 };
 </script>
@@ -161,19 +144,24 @@ export default {
 .col-md-3 {
   margin-bottom: 20px;
 }
+.footerLinks,
+ul {
+  padding: 0;
+}
 footer .widgets {
   background-color: rgb(31, 31, 31);
   border-width: 12px 0px 0px 0px;
   border-color: rgb(64, 64, 64);
   border-style: solid;
-  padding-bottom: 80px;
+  padding-bottom: 20px;
   padding-left: 76.8px;
   padding-right: 76.8px;
-  padding-top: 80px;
+  padding-top: 50px;
 }
 footer .widgets .logo {
   margin-bottom: 20px;
   text-align: start;
+  width: 200px;
 }
 footer .widgets p {
   color: rgb(116, 116, 116);
