@@ -26,9 +26,11 @@
           <h5>OTHER PAGES</h5>
           <ul class="footerLinks">
             <li v-for="page in $store.state.footerPages" :key="page.id">
-              <nuxt-link :to="localePath(generatePagePath(page.id))">{{
-                page.name
-              }}</nuxt-link>
+              <nuxt-link
+                :to="localePath(generatePagePath(page.id))"
+                v-if="page.status"
+                >{{ page.name }}</nuxt-link
+              >
             </li>
           </ul>
         </div>
@@ -86,28 +88,12 @@
         </div>
         <div class="col-auto social">
           <a
-            :href="`https://${$store.state.footerData.facebook}`"
+            v-for="link in $store.state.socialLinks"
+            :key="link.key"
+            :href="link.url"
             target="_blank"
           >
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-          <a
-            :href="`https://${$store.state.footerData.youtube}`"
-            target="_blank"
-          >
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-          <a
-            :href="`https://${$store.state.footerData.instagram}`"
-            target="_blank"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            :href="`https://${$store.state.footerData.linkedin}`"
-            target="_blank"
-          >
-            <i class="fa-brands fa-linkedin-in"></i>
+            <i :class="link.icon"></i>
           </a>
         </div>
       </div>
