@@ -175,6 +175,7 @@ export default {
     max-height: 170px;
     margin-bottom: 15px;
     border-radius: 10px;
+    object-fit: contain;
   }
   h4 {
     color: rgb(46, 46, 46);
