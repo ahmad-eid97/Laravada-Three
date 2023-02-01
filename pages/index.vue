@@ -1,16 +1,26 @@
 <template>
   <div class="home">
     <app-home-intro :slides="slides" />
-    <app-home-banner :topBanner="topBanner" />
-    <app-home-features :activities="activities" />
-    <app-home-steps :steps="steps" />
-    <app-home-count :counter="counter" />
+    <div v-if="topBanner.status">
+      <app-home-banner :topBanner="topBanner.data" />
+    </div>
+    <div v-if="activities.status">
+      <app-home-features :activities="activities.data" />
+    </div>
+    <div v-if="steps.status">
+      <app-home-steps :steps="steps.data" />
+    </div>
+    <div v-if="counter.status">
+      <app-home-count :counter="counter.data" />
+    </div>
     <app-home-work :projects="projects" />
     <app-home-values :services="services" />
     <app-home-testominials :testimonials="testimonials" />
     <app-home-news :blogs="blogs" />
     <app-home-partners :partners="partners" />
-    <app-home-bottom-banner :bottomBanner="bottomBanner" />
+    <div v-if="bottomBanner.status">
+      <app-home-bottom-banner :bottomBanner="bottomBanner.data" />
+    </div>
     <SocialChat :attendants="attendants">
       <p slot="header">Click one of our representatives below to chat.</p>
       <template v-slot:button="{ open }">
@@ -142,16 +152,16 @@ export default {
 
     return {
       slides: slides.data.data.sliders,
-      topBanner: topBanner.data.data,
+      topBanner: topBanner.data,
       services: services.data.data.services,
       testimonials: testimonials.data.data.testimonials,
       blogs: blogs.data.data.blogs.slice(0, 6),
-      counter: counter.data.data,
+      counter: counter.data,
       partners: partners.data.data.partners,
-      bottomBanner: bottomBanner.data.data,
-      activities: activities.data.data,
+      bottomBanner: bottomBanner.data,
+      activities: activities.data,
       projects: projects.data.data.portfolios,
-      steps: steps.data.data,
+      steps: steps.data,
     };
   },
   components: {
