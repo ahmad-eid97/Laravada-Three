@@ -1,16 +1,16 @@
 <template>
   <div class="home">
     <app-home-intro :slides="slides" />
-    <div v-if="topBanner.status">
+    <div v-if="$store.state.sectionsStatus['banner-top']">
       <app-home-banner :topBanner="topBanner.data" />
     </div>
-    <div v-if="activities.status">
+    <div v-if="$store.state.sectionsStatus.activities">
       <app-home-features :activities="activities.data" />
     </div>
-    <div v-if="steps.status">
+    <div v-if="$store.state.sectionsStatus.steps">
       <app-home-steps :steps="steps.data" />
     </div>
-    <div v-if="counter.status">
+    <div v-if="$store.state.sectionsStatus.counter_success">
       <app-home-count :counter="counter.data" />
     </div>
     <app-home-work :projects="projects" />
@@ -18,7 +18,7 @@
     <app-home-testominials :testimonials="testimonials" />
     <app-home-news :blogs="blogs" />
     <app-home-partners :partners="partners" />
-    <div v-if="bottomBanner.status">
+    <div v-if="$store.state.sectionsStatus['banner-bottom']">
       <app-home-bottom-banner :bottomBanner="bottomBanner.data" />
     </div>
     <SocialChat :attendants="attendants">
